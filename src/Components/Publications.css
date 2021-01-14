@@ -1,0 +1,49 @@
+.content-search-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.content-results-container {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border-radius: 5px; 
+    padding: 2vw; 
+    margin-left: 2vw; 
+    margin-top: 2vw; 
+    margin-bottom: 2vw; 
+    width: 60vw;
+    height: 50vw;
+}
+
+.scroll-container {
+    overflow-y: scroll; 
+    height: 50vw; 
+}
+
+.content-filter-container {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border-radius: 5px; 
+    padding: 2vw; 
+    margin: 2vw; 
+    width: 40vw;
+    height: 50vw;
+}
+
+.content-results-container-b {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border-radius: 5px; 
+    padding: 2vw; 
+    margin: 2vw; 
+    margin-bottom: 2vw;
+}
+
+.list-element {
+    background-color: white;
+    margin: 2vh;
+    padding: 2vw; 
+}
