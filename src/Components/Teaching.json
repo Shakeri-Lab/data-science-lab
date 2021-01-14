@@ -1,0 +1,5 @@
+[{"title": "Material A", "tags": "#hello", "date": "Jan 01, 2021", "url": "Home", "description": "We discuss the design of interlayer edges in a multiplex network, under a limited budget, with the goal of improving its overall performance.", "imageUrl": ""},
+    {"title": "Material B", "tags": "#helloworld", "date": "Jan 02, 2021", "url": "Faq", "description": "In this paper, we introduce renewal non-backtracking random walks (RNBRW) as a way of quantifying this structure. RNBRW gives a weight to each edge equal to the probability that a non-backtracking random walk completes a cycle with that edge.", "imageUrl": ""},
+    {"title": "Material C", "tags": "#helloworld!", "date": "Jan 03, 2021", "url": "", "description": "In this paper, we provide a comparative analysis of network robustness for different synthetic and real optical network topologies under various types of massive failures.", "imageUrl": ""},
+    {"title": "Material D", "tags": "#helloworld!", "date": "Jan 03, 2021", "url": "", "description": "In this paper, we propose an Optimum coordination of individual brakes and front/rear steering subsystems.", "imageUrl": ""}
+]

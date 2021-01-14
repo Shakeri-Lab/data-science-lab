@@ -42,9 +42,16 @@ const Publications = () => {
                                 window.location.href=val.url;  
                             }}
                             >
-                                    <strong>{val.title}</strong>
-                                    <p style={{fontStyle: "italic"}}>Published in {val.journal}, {val.year}</p>
-                                    <p>{val.description}</p>
+                                    <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
+                                        <div style={{width: 1000}}>
+                                            <strong>{val.title}</strong>
+                                            <p style={{fontStyle: "italic"}}>Published in {val.journal}, {val.year}</p>
+                                            <p>{val.description}</p>
+                                        </div>
+                                        <div style={{justifyContent: "center", width: 500}}>
+                                            <img style={{width: 250, height: 150, borderRadius: 5, marginLeft: 20}} src={val.imageUrl}/>
+                                        </div>    
+                                    </div>
                             </div>)
                         })}
                     </div>
@@ -66,9 +73,16 @@ const Publications = () => {
                                     window.location.href=val.url;  
                                 }}
                                 >
-                                        <strong>{val.title}</strong>
-                                        <p style={{fontStyle: "italic"}}>Published in {val.journal}, {val.year}</p>
-                                        <p>{val.description}</p>
+                                        <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
+                                        <div style={{width: 1000}}>
+                                            <strong>{val.title}</strong>
+                                            <p style={{fontStyle: "italic"}}>Published in {val.journal}, {val.year}</p>
+                                            <p>{val.description}</p>
+                                        </div>
+                                        <div style={{justifyContent: "center", width: 500}}>
+                                            <img style={{width: 250, height: 150, borderRadius: 5, marginLeft: 20}} src={val.imageUrl}/>
+                                        </div>    
+                                    </div>
                                 </div>)
                             })}
                         </div>

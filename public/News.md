@@ -4,4 +4,4 @@
 
 2021-01-06 Check out <a href="https://www.nbc29.com/2020/12/13/uva-researchers-facilities-workers-test-wastewater-track-spread-covid-/" target="_blank">this article</a> by NBC29 regarding the use of wastewater by university researchers and facilities personnel to track the spread of COVID-19. 
 
-2020-12-25 View our COVID-19 wastewater tracker web application <a href="https://uvacovidwastewater.herokuapp.com/" target="_blank">here</a>. Want to learn more? Read the project documents <a href="/Wastewater">here</a>.
+2020-12-25 View our COVID-19 wastewater tracker web application <a href="https://covidwastewateratuva.herokuapp.com/" target="_blank">here</a>. Want to learn more? Read the project documents <a href="/Wastewater">here</a>.

@@ -2,6 +2,7 @@ import React from 'react';
 import "./Footer.css"; 
 import { MdEmail } from "react-icons/md";
 import { AiFillTwitterSquare, AiFillLinkedin, AiFillGithub, AiFillPhone } from "react-icons/ai";
+import dataScienceLogo from "./images/dataScienceLogo.jpg"; 
 
 const Footer = () => {
     return(
@@ -50,14 +51,14 @@ const Footer = () => {
                     </div>
                     <div className="col">
                         <ul className="list-unstyled">
-                            <li><img style={{width: 375, height: 75}} src="https://mail.google.com/mail/u/1?ui=2&ik=f28063dc51&attid=0.1&permmsgid=msg-f:1688169185984724151&th=176d94ee2b613cb7&view=fimg&sz=s0-l75-ft&attbid=ANGjdJ_zYFwGQWo1CrnMAd8ETMWbgn0vemKPLH_reahHeYrm2i-Xc0d8RA1_NnpuHcR4AdgVinpU003Jhv_5WQ5zACA6C-swact_yS00jr3V2aY7XvBdX-XqTqRcYZk&disp=emb"/></li>
+                            <li><img style={{width: 375, height: 75}} src={dataScienceLogo}/></li>
                         </ul>
                     </div>
                 </div>
                 <hr />
                 <div className="row">
                     <p className="col-sm">
-                        &copy; {new Date().getFullYear()} Heman Shakeri Lab
+                        &copy; 2020-{new Date().getFullYear()} Shakeri Lab
                     </p>
                 </div>
             </div>

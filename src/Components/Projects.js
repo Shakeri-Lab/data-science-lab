@@ -3,7 +3,7 @@ import "./Projects.css";
 import { MdSubtitles } from "react-icons/md";
 import { IoIosCalendar, IoMdSearch } from "react-icons/io";
 import { BiHash } from "react-icons/bi";
-import ProjectsJSON from "./Projects.json"; 
+import ProjectsJSON from "./Projects.json";
 
 const Projects = () => {
     const[inputTitle, setInputTitle] = useState("");
@@ -41,9 +41,16 @@ const Projects = () => {
                                     window.location.href=val.url;  
                                 }}
                                 >
-                                        <strong>{val.title}</strong>
-                                        <p>{val.description}</p>
-                                        <p>tags: {val.tags}</p>
+                                    <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
+                                        <div style={{width: 1000}}>
+                                            <strong>{val.title}</strong>
+                                            <p>{val.description}</p>
+                                            <p>tags: {val.tags}</p>
+                                        </div>
+                                        <div style={{justifyContent: "center", width: 500}}>
+                                            <img style={{width: 250, height: 150, borderRadius: 5}} src={val.imageUrl}/>
+                                        </div>    
+                                    </div>
                                 </div>)
                             })}
                         </div>
@@ -67,9 +74,16 @@ const Projects = () => {
                                     window.location.href=val.url;  
                                 }}
                                 >
-                                        <strong>{val.title}</strong>
-                                        <p>{val.description}</p>
-                                        <p>tags: {val.tags}</p>
+                                        <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
+                                        <div style={{width: 1000}}>
+                                            <strong>{val.title}</strong>
+                                            <p>{val.description}</p>
+                                            <p>tags: {val.tags}</p>
+                                        </div>
+                                        <div style={{justifyContent: "center", width: 500}}>
+                                            <img style={{width: 250, height: 150, borderRadius: 5, marginLeft: 20}} src={val.imageUrl}/>
+                                        </div>    
+                                    </div>
                                 </div>)
                             })}
                         </div>

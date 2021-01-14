@@ -31,43 +31,43 @@ const Home = () => {
 
     const[alertVisible, setAlertVisible] = useState(true);
 
-    function sendEmail(e) {
-        if (name != "" && email != "" && message != ""){
-            e.preventDefault();
+    // function sendEmail(e) {
+    //     if (name != "" && email != "" && message != ""){
+    //         e.preventDefault();
     
-            emailjs.sendForm('service_qsm1dle', 'template_4sqbn5u', e.target, 'user_WTkh9w5eegcbYe1z7Oo8u')
-              .then((result) => {
-                  console.log(result.text);
-                  window.location.href = '/Home'; 
-              }, (error) => {
-                  console.log(error.text);
-              });
+    //         emailjs.sendForm('service_qsm1dle', 'template_4sqbn5u', e.target, 'user_WTkh9w5eegcbYe1z7Oo8u')
+    //           .then((result) => {
+    //               console.log(result.text);
+    //               window.location.href = '/Home'; 
+    //           }, (error) => {
+    //               console.log(error.text);
+    //           });
 
-              emailjs.sendForm('service_qsm1dle', 'template_pe26y4e', e.target, 'user_WTkh9w5eegcbYe1z7Oo8u')
-              .then((result) => {
-                  console.log(result.text);
-                  alert('We have notified the lab of your inquiry. Someone will send you an email if a response is neccessary.')
-                  window.location.href = '/Home'; 
-              }, (error) => {
-                  console.log(error.text);
-              });
-        }else{
-            alert("Please enter a name, email address, and note.")
-        }
-      }
+    //           emailjs.sendForm('service_qsm1dle', 'template_pe26y4e', e.target, 'user_WTkh9w5eegcbYe1z7Oo8u')
+    //           .then((result) => {
+    //               console.log(result.text);
+    //               alert('We have notified the lab of your inquiry. Someone will send you an email if a response is neccessary.')
+    //               window.location.href = '/Home'; 
+    //           }, (error) => {
+    //               console.log(error.text);
+    //           });
+    //     }else{
+    //         alert("Please enter a name, email address, and note.")
+    //     }
+    //   }
 
     return(
         <div className="App">
+            
+            <div className="content-container">
+                <ReactMd fileName="./Home.md" />
+            </div>
             {alertVisible && <div style={{backgroundColor: "#b3e5fc", borderRadius: 10, margin: 20}}>
-                <p>Alert</p>
-                <p>We are currently accepting Graduate students. Please contact Heman Shakeri if you are interested. December 25, 2020 4:00 pm <p style={{color: "gray", cursor: "pointer"}}
+                <p>We are currently accepting Graduate students. Please send Heman Shakeri your CV if you are interested. December 25, 2020 4:00 pm <p style={{color: "gray", cursor: "pointer"}}
                 onClick = {() =>{
                     setAlertVisible(false); 
                 }}><strong>X Close</strong></p></p>
             </div>}
-            <div className="content-container">
-                <ReactMd fileName="./Home.md" />
-            </div>
             <div style={{display: "flex", flexDirection: "row", margin: 20}}>
                 <div style={{margin: 10, width: "50vw"}}>
                     <ReactMd fileName="./News.md" />
@@ -76,7 +76,8 @@ const Home = () => {
                 <TwitterTimelineEmbed
                     sourceType="profile"
                     screenName="HemanShakeri"
-                    //options={{height: 500, width: 500}}
+                    // options={{height: 500, width: 500}}
+                    options={{height: 500}}
                 />
                 </div>
             </div>

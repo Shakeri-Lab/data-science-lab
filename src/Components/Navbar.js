@@ -5,14 +5,15 @@ import {
     //BrowserRouter as Router,
     Link,
 } from 'react-router-dom'; 
+import rotunda from "./images/rotunda.png"; 
 
 function Navbar() {
   return (
     <div className="App">
         <ReactBootstrap.Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <ReactBootstrap.Navbar.Brand href="/">
-          <img style={{width: 30, height: 30, marginRight: 10}} src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/University_of_Virginia_Rotunda_logo.svg/1200px-University_of_Virginia_Rotunda_logo.svg.png"/>
-          <strong style={{ color: '#2e3d82' }}>Heman Shakeri Lab</strong>
+          <img style={{width: 30, height: 30, marginRight: 10}} src={rotunda}/>
+          <strong style={{ color: '#2e3d82' }}>Shakeri Lab</strong>
           </ReactBootstrap.Navbar.Brand>
         <ReactBootstrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <ReactBootstrap.Navbar.Collapse id="responsive-navbar-nav">
