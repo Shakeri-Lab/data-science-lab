@@ -63,7 +63,7 @@ This project is a resource website which presents lab information for the Shaker
                 return(
                     <div className="App">
                         <div className="content-container">
-                            <ReactMd fileName="./Firstnamelastname.md" />
+                            <ReactMd fileName="./FirstnameLastname.md" />
                         </div>
                     </div>
                 )
