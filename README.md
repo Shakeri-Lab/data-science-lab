@@ -1,4 +1,7 @@
-# Documentation (1-14-2021)
+# Documentation
+
+Published January 14, 2021
+
 
 ## Production Link
 
@@ -10,7 +13,7 @@
 
 ## Summary
 
-This project is a resource website which presents lab information for the Shakeri Lab. The site includes a Home screen which stores News infromation and allows the lab to make announcements. Additionally, the site allows the lab to display lab personnel with individual bios. Further, projects, publications, and teaching/learning material can be uploaded and linked to the site; this insformation can be filtered by the user. Further, individual blogs can be posted in a markdown file. Lastly, contact information for the lab is stored on the site. 
+This project is a resource website which presents lab information for the Shakeri Lab. The site includes a Home screen which stores News infromation and allows the lab to make announcements. Additionally, the site allows the lab to display lab personnel with individual bios. Further, projects, publications, and teaching/learning material can be uploaded and linked to the site; this insformation can be filtered by the user. Individual blogs and contact information can be posted in a markdown file.
 
 ## Run this project locally
 
@@ -202,7 +205,8 @@ This project is a resource website which presents lab information for the Shaker
 
 <hr></hr>
 
-# More general, standard information from the React boilerplate README.md  file is below
+# More general, standard information from the React boilerplate README.md file is below
+© 2020 Noah Beamon
 
 # Getting Started with Create React App
 
