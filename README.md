@@ -6,7 +6,7 @@
 
 ## Live Demo Link
 
-<a target="_blank" href="https://shakerilab.herokuapp.com/"></a>
+<a target="_blank" href="https://shakerilab.herokuapp.com/">demo</a>
 
 ## Summary
 
@@ -51,9 +51,7 @@ This project is a resource website which presents lab information for the Shaker
 ## Add a personal bio
 
 1.Inside public folder, create a file "FirstnameLastname.md". Add your bio content.
-2.Inside src/Components/Personnel create a file "FirstnameLastname.js"
-
-    code template:
+2.Inside src/Components/Personnel create a file "FirstnameLastname.js":
 
             import React, { useState } from 'react';
             import ReactMd from 'react-md-file';
@@ -71,7 +69,6 @@ This project is a resource website which presents lab information for the Shaker
             export default FirstnameLastname; 
 
 3.Open src/Components/Personnel.js. Inside of the second div tag add the following code:
-    code template:
 
      <div style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", borderRadius: 10, margin: 20, width: 250, cursor: "pointer"}}
                 onClick={() => {
@@ -86,12 +83,10 @@ This project is a resource website which presents lab information for the Shaker
                 </div>
 
 4.Open src/App.js. Under the "//personnel" comment insert:
-    code template:
 
         import FirstnameLastname from "./Components/Personnel/FirstnameLastname"; 
 
 5.Under the "{/*Personnel*/}" comment add the following code:
-    code template:
 
           <Route path="/FirstnameLastname" component={FirstnameLastname}>
             <FirstnameLastname />
@@ -102,13 +97,11 @@ This project is a resource website which presents lab information for the Shaker
 1.Inside public folder, create a file "Atitle.md". Add your project content.
 2.Open src/Components/Projects.json
 3.In the top of the JSON object add a new element in the following format:
-    code template:
 
         {"title": "Project_Title", "description": "A_description", "tags": "#project #tag", "url": "Atitle", "imageUrl": "anImageSourceURL"},
     
 4.Open src/Components/Projects folder
 5.Create a new file "Atitle.js" and insert the following code:
-    code template:
 
         import React, { useState } from 'react';
         import ReactMd from 'react-md-file';
@@ -126,12 +119,10 @@ This project is a resource website which presents lab information for the Shaker
         export default Atitle; 
 
 6.Open src/App.js. Under the "//projects" comment insert:
-    code template:
 
         import Atitle from "./Components/Projects/Atitle"; 
 
 7.Under the "{/*Projects*/}" comment add the following code:
-    code template:
 
         <Route path="/Atitle" component={Atitle}>
             <Atitle />
@@ -142,13 +133,11 @@ This project is a resource website which presents lab information for the Shaker
 1.Inside public folder, create a file "Atitle.md". Add your publication content.
 2.Open src/Components/Publications.json
 3.In the top of the JSON object add a new element in the following format:
-    code template:
 
         {"title": "Publication_Title", "journal": "Journal Name", "year": "YYYY", "url": "Atitle", "description": "A_description", "imageUrl": "anImageSourceURL"},
     
 4.Open src/Components/Publications folder
 5.Create a new file "Atitle.js" and insert the following code:
-    code template:
 
         import React, { useState } from 'react';
         import ReactMd from 'react-md-file';
@@ -166,12 +155,10 @@ This project is a resource website which presents lab information for the Shaker
         export default Atitle; 
 
 6.Open src/App.js. Under the "//publications" comment insert:
-    code template:
 
         import Atitle from "./Components/Publications/Atitle"; 
 
 7.Under the "{/*Publications*/}" comment add the following code:
-    code template:
 
         <Route path="/Atitle" component={Atitle}>
             <Atitle />
@@ -182,13 +169,11 @@ This project is a resource website which presents lab information for the Shaker
 1.Inside public folder, create a file "Atitle.md". Add your Teaching/Lecture content.
 2.Open src/Components/Teaching.json
 3.In the top of the JSON object add a new element in the following format:
-    code template:
 
         {"title": "Teaching/Lecture Title", "tags": "#teaching #tag", "date": "Jan 01, 2021", "url": "Atitle", "description": "A_description", "imageUrl": "anImageSourceURL"},
     
 4.Open src/Components/Teaching folder
 5.Create a new file "Atitle.js" and insert the following code:
-    code template:
 
         import React, { useState } from 'react';
         import ReactMd from 'react-md-file';
@@ -206,12 +191,10 @@ This project is a resource website which presents lab information for the Shaker
         export default Atitle; 
 
 6.Open src/App.js. Under the "//teachings" comment insert:
-    code template:
 
         import Atitle from "./Components/Teachings/Atitle"; 
 
 7.Under the "{/*Teachings*/}" comment add the following code:
-    code template:
 
         <Route path="/Atitle" component={Atitle}>
             <Atitle />
