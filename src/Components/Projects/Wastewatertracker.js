@@ -126,14 +126,14 @@ const Wastewatertracker = () => {
         setViewport({
             latitude: 38.031479,
             longitude: -78.481272,
-            width: "auto",
+            width: window.innerWidth-100,
             height: heightWin/2,  //window.innerHeight
             zoom: 12,
         })
         setViewport1({
             latitude: 36.841258,
             longitude: -76.383983,
-            width: "auto",
+            width:  window.innerWidth-100,
             height: heightWin/2,  //window.innerHeight
             zoom: 9,
         })
@@ -143,7 +143,7 @@ const Wastewatertracker = () => {
     const [viewport, setViewport] = useState({
         latitude: 38.031479,
         longitude: -78.481272,
-        width: "auto",
+        width: window.innerWidth-100, //"auto"
         height: window.innerHeight/2,  //window.innerHeight
         zoom: 13,
         borderTopLeftRadius: 20,
@@ -171,7 +171,7 @@ const Wastewatertracker = () => {
       const [viewport1, setViewport1] = useState({
         latitude: 36.841258,
         longitude: -76.383983,
-        width: "auto",
+        width: window.innerWidth-100,
         height: window.innerHeight/2, 
         zoom: 9,
     });
