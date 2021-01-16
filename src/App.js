@@ -14,6 +14,7 @@ import Footer from "./Components/Footer";
 //projects
 import Allofus from "./Components/Projects/Allofus"; 
 import Wastewater from "./Components/Projects/Wastewater"; 
+import Wastewatertracker from "./Components/Projects/Wastewatertracker"; 
 
 //personnel
 import HemanShakeri from "./Components/Personnel/HemanShakeri"; 
@@ -36,9 +37,16 @@ function App() {
           <Route path="/Wastewater" component={Wastewater}>
             <Wastewater />
           </Route>
+          <Route path="/Wastewatertracker" component={Wastewatertracker}>
+            <Wastewatertracker />
+          </Route>
           <Route path="/Allofus" component={Allofus}>
             <Allofus />
           </Route>
+          {/*Publications*/}
+
+          {/*Teaching/Lectures*/}
+
           {/*Personnel*/}
           <Route path="/HemanShakeri" component={HemanShakeri}>
             <HemanShakeri />

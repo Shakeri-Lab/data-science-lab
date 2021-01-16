@@ -2,7 +2,7 @@
 
 (This is a md file)
 
-Checkout the project web app <a href="https://covidwastewateratuva.herokuapp.com/" target="_blank">here</a>
+Checkout the project web app <a href="Wastewatertracker">here</a>
 
 In this project we determined the results as demosntrated in our <a href="https://hosted-notebook-example.herokuapp.com/" target="_blank">Jupyter notebook</a>. 
 

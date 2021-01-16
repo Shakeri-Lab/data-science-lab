@@ -58,7 +58,7 @@ const Footer = () => {
                 <hr />
                 <div className="row">
                     <p className="col-sm">
-                        &copy; 2020-{new Date().getFullYear()} Shakeri Lab
+                        &copy; {new Date().getFullYear()} Shakeri Lab
                     </p>
                 </div>
             </div>
