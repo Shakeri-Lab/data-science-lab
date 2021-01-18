@@ -1,4 +1,9 @@
-(this is a markdown file rendered in React- Home.md)
 
-This is a change made today!
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. (Home.md renedered here including title) Example File
+### Welcome to Shakeri Research Group.
+We are part of the [School of Data Science](https://datascience.virginia.edu/) at [University of Virginia](https://www.virginia.edu/).
+Our multidisciplinary group develops algorithms to analyze data from **complex stochastic interconnected systems**. We will make use of 
+*graph algorithms*, *harmonic geometry*, and *operator theoretic concepts* to 
+ advance our understanding of dynamic high-dimensional systems in 
+ - Processes on networks
+ - Brain structure and function
+ - Single cell data analysis and drug discovery
