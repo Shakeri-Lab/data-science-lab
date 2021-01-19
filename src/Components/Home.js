@@ -66,7 +66,7 @@ const Home = () => {
                     </div>
                 </div>
             </BrowserView>}
-            {isMobile && <MobileView>
+            {isMobile && <MobileView style={{margin: 10}}>
                 <div className="content-container">
                         <ReactMd fileName="./Home.md" />
                 </div>
