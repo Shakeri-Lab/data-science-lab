@@ -10,10 +10,10 @@ import rotunda from "./images/rotunda.png";
 function Navbar() {
   return (
     <div className="App">
-        <ReactBootstrap.Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+        <ReactBootstrap.Navbar style={{boxShadow: "2px 4px 6px gray"}} collapseOnSelect expand="lg" bg="dark" variant="dark">
         <ReactBootstrap.Navbar.Brand href="/">
           <img style={{width: 30, height: 30, marginRight: 10}} src={rotunda}/>
-          <strong style={{ color: '#2e3d82' }}>Shakeri Lab</strong>
+          <strong style={{  }}>Shakeri Research Group</strong>
           </ReactBootstrap.Navbar.Brand>
         <ReactBootstrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <ReactBootstrap.Navbar.Collapse id="responsive-navbar-nav">

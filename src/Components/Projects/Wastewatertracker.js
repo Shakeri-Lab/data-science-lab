@@ -251,7 +251,12 @@ const Wastewatertracker = () => {
 
     return(
         <div className="App">
-            <h2 style={{margin: 20}}><strong>Wastewater Reports</strong></h2>
+            <div style={{margin: 20, display: "flex", flexDirection: "row", justifyContent: "center"}}>
+            <GiWaterRecycling style={{color: 'rgba(52, 220, 235, 1)', marginRight: 10, marginTop: 5}} size={35}/>
+            <h2 style={{}}><strong>Virginia Wastewater Reports</strong></h2>
+            </div>
+            
+            <strong style ={{color: "grey"}}>Click a location on the map to view its wastewater report and predicted cases.</strong>
             <div style={{display: "flex", flexDirection: "column", justifyContent: "center", margin: 20}}>
                 <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
                 <div style={{ width: "50vw", borderBottom: tabBorderColor, cursor: "pointer", backgroundColor: "whitesmoke", borderTopLeftRadius: 10, borderBottomLeftRadius: 10}}
@@ -919,7 +924,7 @@ const Wastewatertracker = () => {
 
                 <div>
                 <RiInformationLine size={30} style={{color: "grey"}}/>
-                <p>The "cases reported" data on this site is automated and provided by the <a href="https://www.vdh.virginia.gov/" target = "_blank">Virginia Department of Health</a></p>
+                <p>The Daily Reported Cases data on this site is automated and provided by the <a href="https://www.vdh.virginia.gov/" target = "_blank">Virginia Department of Health</a></p>
                 </div>
 
             </div>

@@ -14,20 +14,20 @@ const Footer = () => {
                             <li>Questions? Contact Heman Shakeri, Assistant Professor, School of Data Science | University of Virginia</li>
                             <li>
                                 <MdEmail size={20}/>
-                                <a style={{margin: 10, color: 'rgba(85, 85, 85, 1)'}} href={"mailto:" + "hs9hd@virginia.edu"}>Email</a>
+                                <a style={{margin: 10, color: '#fff'}} href={"mailto:" + "hs9hd@virginia.edu"}>Email</a>
                             </li>
                             <li>
                                 <AiFillTwitterSquare size={20}/>
-                                <a target="_blank" style={{margin: 10, color: 'rgba(85, 85, 85, 1)'}} href={"https://twitter.com/HemanShakeri"}>Twitter</a>
+                                <a target="_blank" style={{margin: 10, color: '#fff'}} href={"https://twitter.com/HemanShakeri"}>Twitter</a>
                             </li>
                             <li>
                                 <AiFillLinkedin size={20}/>
-                                <a target="_blank" style={{margin: 10, color: 'rgba(85, 85, 85, 1)'}} href={"https://www.linkedin.com/in/heman-shakeri-61ba603a/"}>LinkedIn</a>
+                                <a target="_blank" style={{margin: 10, color: '#fff'}} href={"https://www.linkedin.com/in/heman-shakeri-61ba603a/"}>LinkedIn</a>
                             </li>
                             <li style={{marginTop: 30}}>Site built by Noah Beamon</li>
                             <li>
                                 <AiFillLinkedin size={20}/>
-                                <a target="_blank" style={{margin: 10, color: 'rgba(85, 85, 85, 1)'}} href={"https://www.linkedin.com/in/noah-b-8a45711b5/"}>LinkedIn</a>
+                                <a target="_blank" style={{margin: 10, color: '#fff'}} href={"https://www.linkedin.com/in/noah-b-8a45711b5/"}>LinkedIn</a>
                             </li>
                         </ul>
                     </div>
@@ -37,11 +37,11 @@ const Footer = () => {
                            <li>P.O. Box 400249</li>
                            <li>Charlottesville, VA 22904 USA</li>
                            <li>
-                                <a target="_blank" style={{color: 'rgba(85, 85, 85, 1)'}} href={"https://www.google.com/maps/place/Dell+1,+Charlottesville,+VA+22903/@38.0344626,-78.5108793,17z"}>View on Map</a>
+                                <a target="_blank" style={{color: '#fff'}} href={"https://www.google.com/maps/place/Dell+1,+Charlottesville,+VA+22903/@38.0344626,-78.5108793,17z"}>View on Map</a>
                             </li>
                             <li>
                                 <MdEmail size={20}/>
-                                <a style={{margin: 10, color: 'rgba(85, 85, 85, 1)'}} href={"mailto:" + "datascience@virginia.edu"}>Email</a>
+                                <a style={{margin: 10, color: '#fff'}} href={"mailto:" + "datascience@virginia.edu"}>Email</a>
                             </li>
                             <li>
                                 <AiFillPhone size={20} style={{marginRight: 10}}/>
@@ -57,8 +57,8 @@ const Footer = () => {
                 </div>
                 <hr />
                 <div className="row">
-                    <p className="col-sm">
-                        &copy; {new Date().getFullYear()} Shakeri Lab
+                    <p style={{color: "fff"}} className="col-sm">
+                        &copy; {new Date().getFullYear()} Shakeri Research Group
                     </p>
                 </div>
             </div>
