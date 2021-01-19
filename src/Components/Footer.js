@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Footer.css"; 
 import { MdEmail } from "react-icons/md";
 import { AiFillTwitterSquare, AiFillLinkedin, AiFillGithub, AiFillPhone } from "react-icons/ai";
 import dataScienceLogo from "./images/dataScienceLogo.jpg"; 
 
 const Footer = () => {
+    const[logoHeight, setLogoHeight] = useState(window.innerHeight/14)
+    const[logoWidth, setLogoWidth] = useState(window.innerWidth/4)
+    window.onresize = function() {
+        var widthWin = window.innerWidth
+        var heightWin = window.innerHeight
+        setLogoHeight(heightWin/14)
+        setLogoWidth(widthWin/4)
+    }
     return(
         <div className="main-footer">
             <div className="container">
@@ -51,7 +59,7 @@ const Footer = () => {
                     </div>
                     <div className="col">
                         <ul className="list-unstyled">
-                            <li><img style={{width: 375, height: 75}} src={dataScienceLogo}/></li>
+                            <li><img style={{width: logoWidth, height: logoHeight}} src={dataScienceLogo}/></li>
                         </ul>
                     </div>
                 </div>
