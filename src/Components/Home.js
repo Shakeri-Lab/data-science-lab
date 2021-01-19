@@ -42,7 +42,7 @@ const Home = () => {
 
     return(
         <div className="App">
-            <BrowserView>
+            {!isMobile && <BrowserView>
                 <div className="content-container">
                     <ReactMd fileName="./Home.md" />
                 </div>
@@ -65,8 +65,8 @@ const Home = () => {
                     />
                     </div>
                 </div>
-            </BrowserView>
-            <MobileView>
+            </BrowserView>}
+            {isMobile && <MobileView>
                 <div className="content-container">
                         <ReactMd fileName="./Home.md" />
                 </div>
@@ -77,7 +77,7 @@ const Home = () => {
                     }}><strong>X Close</strong></p></p>
                 </div>}
                 <div style={{margin: 10}}>
-                    <FaTwitter style={{color: "#1197E8"}}
+                    <FaTwitter style={{color: "#1197E8"}} size={30}
                      onClick={() => {
                         setTwitterVisible(!twitterVisible)
                      }}
@@ -94,7 +94,7 @@ const Home = () => {
                 <div style={{margin: 10}}>
                         <ReactMd fileName="./News.md" />
                 </div>
-            </MobileView>
+            </MobileView>}
 
             {/* <Tabs style={{marginTop: 10}}>
                 <TabList style={{display: "flex", alignItems: "left"}}>
