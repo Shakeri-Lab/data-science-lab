@@ -38,18 +38,20 @@ const Personnel = () => {
             </div>
             </BrowserView>}
             {isMobile && <MobileView>
-                <div style={{margin: 30, backgroundColor: "whitesmoke", width: 250}}>
-                    <img style={{heigth: 250, width: 200}} src="https://api.dsi.virginia.edu/sites/default/files/styles/square_sm/public/headshots/people/2020-01/Heman_001.png?w=1500" />
-                    <div style={{padding: 5}}>
-                        <strong>Heman Shakeri</strong>
-                        <p>Assistant Professor, School of Data Science | University of Virginia</p>
+                <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                    <div style={{margin: 30, backgroundColor: "whitesmoke", width: 250, borderRadius: 10}}>
+                        <img style={{heigth: 250, width: 200, borderRadius: 10}} src="https://api.dsi.virginia.edu/sites/default/files/styles/square_sm/public/headshots/people/2020-01/Heman_001.png?w=1500" />
+                        <div style={{padding: 5}}>
+                            <strong>Heman Shakeri</strong>
+                            <p>Assistant Professor, School of Data Science | University of Virginia</p>
+                        </div>
                     </div>
-                </div>
-                <div style={{margin: 20, backgroundColor: "whitesmoke", width: 250}}>
-                    <img style={{heigth: 250, width: 200}} src="https://virginiaequitycenter.org/sites/virginiaequitycenter.org/files/styles/people_crop__200x200_/public/Noah%20Beamon.png?itok=NoEZz7aZ" />
-                    <div style={{padding: 5}}>
-                        <strong>Noah Beamon</strong>
-                        <p>Undergraduate Research Assistant | University of Virginia</p>
+                    <div style={{margin: 20, backgroundColor: "whitesmoke", width: 250, borderRadius: 10}}>
+                        <img style={{heigth: 250, width: 200, borderRadius: 10}} src="https://virginiaequitycenter.org/sites/virginiaequitycenter.org/files/styles/people_crop__200x200_/public/Noah%20Beamon.png?itok=NoEZz7aZ" />
+                        <div style={{padding: 5}}>
+                            <strong>Noah Beamon</strong>
+                            <p>Undergraduate Research Assistant | University of Virginia</p>
+                        </div>
                     </div>
                 </div>
             </MobileView>}
