@@ -47,7 +47,7 @@ const Home = () => {
                     <ReactMd fileName="./Home.md" />
                 </div>
                 {alertVisible && <div style={{backgroundColor: "whitesmoke ", borderRadius: 10, margin: 20}}>
-                    <p>We are currently accepting Graduate students. Please send Heman Shakeri your CV if you are interested. December 25, 2020 4:00 pm <p style={{color: "gray", cursor: "pointer"}}
+                    <p>We are currently accepting Graduate students. Please send Heman Shakeri your CV if you are interested. December 27, 2020 4:00 pm <p style={{color: "gray", cursor: "pointer"}}
                     onClick = {() =>{
                         setAlertVisible(false); 
                     }}><strong>X Close</strong></p></p>

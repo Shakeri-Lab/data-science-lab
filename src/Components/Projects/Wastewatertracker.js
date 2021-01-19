@@ -251,9 +251,9 @@ const Wastewatertracker = () => {
 
     return(
         <div className="App">
-            <div style={{margin: 20, display: "flex", flexDirection: "row", justifyContent: "center"}}>
-            <GiWaterRecycling style={{color: 'rgba(52, 220, 235, 1)', marginRight: 10, marginTop: 5}} size={35}/>
-            <h2 style={{}}><strong>Virginia Wastewater Reports</strong></h2>
+            <div style={{margin: 20}}>
+                <h2><strong>Virginia Wastewater Reports</strong></h2>
+                <GiWaterRecycling style={{color: 'rgba(52, 220, 235, 1)'}} size={35}/>
             </div>
             
             <strong style ={{color: "grey"}}>Click a location on the map to view its wastewater report and predicted cases.</strong>
