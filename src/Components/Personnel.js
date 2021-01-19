@@ -40,15 +40,15 @@ const Personnel = () => {
             {isMobile && <MobileView>
                 <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
                     <div style={{margin: 30, backgroundColor: "whitesmoke", width: 250, borderRadius: 10}}>
-                        <img style={{heigth: 250, width: 200, borderRadius: 10}} src="https://api.dsi.virginia.edu/sites/default/files/styles/square_sm/public/headshots/people/2020-01/Heman_001.png?w=1500" />
-                        <div style={{padding: 5}}>
+                        <img style={{heigth: 250, width: 20, borderRadius: 10}} src="https://api.dsi.virginia.edu/sites/default/files/styles/square_sm/public/headshots/people/2020-01/Heman_001.png?w=1500" />
+                        <div style={{}}>
                             <strong>Heman Shakeri</strong>
                             <p>Assistant Professor, School of Data Science | University of Virginia</p>
                         </div>
                     </div>
                     <div style={{margin: 20, backgroundColor: "whitesmoke", width: 250, borderRadius: 10}}>
-                        <img style={{heigth: 250, width: 200, borderRadius: 10}} src="https://virginiaequitycenter.org/sites/virginiaequitycenter.org/files/styles/people_crop__200x200_/public/Noah%20Beamon.png?itok=NoEZz7aZ" />
-                        <div style={{padding: 5}}>
+                        <img style={{heigth: 250, width: 20, borderRadius: 10}} src="https://virginiaequitycenter.org/sites/virginiaequitycenter.org/files/styles/people_crop__200x200_/public/Noah%20Beamon.png?itok=NoEZz7aZ" />
+                        <div style={{}}>
                             <strong>Noah Beamon</strong>
                             <p>Undergraduate Research Assistant | University of Virginia</p>
                         </div>
