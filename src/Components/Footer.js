@@ -55,7 +55,7 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-                <hr />
+                <hr style={{backgroundColor: "white"}} />
                 <div className="row">
                     <p style={{color: "fff"}} className="col-sm">
                         &copy; {new Date().getFullYear()} Shakeri Research Group

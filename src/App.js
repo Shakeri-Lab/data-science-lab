@@ -28,7 +28,8 @@ import {
 
 function App() {
   return (
-    <div className="page-container">
+    // <div className="page-container">
+    <div style={{overflow: "hidden"}} className="page-container">
       <div className="content-wrap">
       <Router>
       <Navbar />
