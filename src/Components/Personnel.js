@@ -38,7 +38,7 @@ const Personnel = () => {
             </div>
             </BrowserView>}
             {isMobile && <MobileView>
-                <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
                     <div style={{margin: 30, backgroundColor: "whitesmoke", width: 250, borderRadius: 10}}>
                         <img style={{heigth: 250, width: 200, borderRadius: 10}} src="https://api.dsi.virginia.edu/sites/default/files/styles/square_sm/public/headshots/people/2020-01/Heman_001.png?w=1500" />
                         <div style={{padding: 5}}>
