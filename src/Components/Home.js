@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactMd from 'react-md-file';
 import "./Home.css"; 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -11,76 +11,89 @@ import RecentsJSON from "./Recents.json";
 import { MdSubtitles } from "react-icons/md";
 import { IoIosCalendar, IoMdSearch } from "react-icons/io";
 import { BiHash } from "react-icons/bi"; 
+import { FaTwitter } from "react-icons/fa";
 import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
+import {
+    BrowserView,
+    MobileView,
+    isBrowser,
+    isMobile
+  } from "react-device-detect";
+
 const Home = () => {
-    const[name, setName] = useState("");
-    const[email, setEmail] = useState("");
-    const[message, setMessage] = useState(""); 
+    // const[name, setName] = useState("");
+    // const[email, setEmail] = useState("");
+    // const[message, setMessage] = useState(""); 
 
-    const[button1, setButton1] = useState('2px solid rgb(0, 0, 0, 1)');
-    const[button2, setButton2] = useState('2px solid rgb(0, 0, 0, 1)');
-    const[button3, setButton3] = useState('2px solid rgb(0, 0, 0, 1)');
+    // const[button1, setButton1] = useState('2px solid rgb(0, 0, 0, 1)');
+    // const[button2, setButton2] = useState('2px solid rgb(0, 0, 0, 1)');
+    // const[button3, setButton3] = useState('2px solid rgb(0, 0, 0, 1)');
 
-    const[inputTitle, setInputTitle] = useState("");
-    const[inputDescription, setInputDescription] = useState("");
-    const[inputTags, setInputTags] = useState("");
-    const[inputTime, setInputTime] = useState("");
+    // const[inputTitle, setInputTitle] = useState("");
+    // const[inputDescription, setInputDescription] = useState("");
+    // const[inputTags, setInputTags] = useState("");
+    // const[inputTime, setInputTime] = useState("");
 
-    const[buttonColor, setButtonColor] = useState("rgba(46, 61, 130, 1)");
+    // const[buttonColor, setButtonColor] = useState("rgba(46, 61, 130, 1)");
 
+    const[twitterVisible, setTwitterVisible] = useState(false);
     const[alertVisible, setAlertVisible] = useState(true);
-
-    // function sendEmail(e) {
-    //     if (name != "" && email != "" && message != ""){
-    //         e.preventDefault();
-    
-    //         emailjs.sendForm('service_qsm1dle', 'template_4sqbn5u', e.target, 'user_WTkh9w5eegcbYe1z7Oo8u')
-    //           .then((result) => {
-    //               console.log(result.text);
-    //               window.location.href = '/Home'; 
-    //           }, (error) => {
-    //               console.log(error.text);
-    //           });
-
-    //           emailjs.sendForm('service_qsm1dle', 'template_pe26y4e', e.target, 'user_WTkh9w5eegcbYe1z7Oo8u')
-    //           .then((result) => {
-    //               console.log(result.text);
-    //               alert('We have notified the lab of your inquiry. Someone will send you an email if a response is neccessary.')
-    //               window.location.href = '/Home'; 
-    //           }, (error) => {
-    //               console.log(error.text);
-    //           });
-    //     }else{
-    //         alert("Please enter a name, email address, and note.")
-    //     }
-    //   }
 
     return(
         <div className="App">
-            
-            <div className="content-container">
-                <ReactMd fileName="./Home.md" />
-            </div>
-            {alertVisible && <div style={{backgroundColor: "whitesmoke ", borderRadius: 10, margin: 20}}>
-                <p>We are currently accepting Graduate students. Please send Heman Shakeri your CV if you are interested. December 25, 2020 4:00 pm <p style={{color: "gray", cursor: "pointer"}}
-                onClick = {() =>{
-                    setAlertVisible(false); 
-                }}><strong>X Close</strong></p></p>
-            </div>}
-            <div style={{display: "flex", flexDirection: "row", margin: 20}}>
-                <div style={{margin: 10, width: "50vw"}}>
-                    <ReactMd fileName="./News.md" />
+            <BrowserView>
+                <div className="content-container">
+                    <ReactMd fileName="./Home.md" />
+                </div>
+                {alertVisible && <div style={{backgroundColor: "whitesmoke ", borderRadius: 10, margin: 20}}>
+                    <p>We are currently accepting Graduate students. Please send Heman Shakeri your CV if you are interested. December 25, 2020 4:00 pm <p style={{color: "gray", cursor: "pointer"}}
+                    onClick = {() =>{
+                        setAlertVisible(false); 
+                    }}><strong>X Close</strong></p></p>
+                </div>}
+                <div style={{display: "flex", flexDirection: "row", margin: 20}}>
+                    <div style={{margin: 10, width: "50vw", height: window.innerHeight/1.5, overflow: "auto"}}>
+                        <ReactMd fileName="./News.md" />
+                    </div>
+                    <div style={{margin: 10, width: "50vw"}}>
+                    <TwitterTimelineEmbed
+                        sourceType="profile"
+                        screenName="HemanShakeri"
+                        // options={{height: 500, width: 500}}
+                        options={{height: window.innerHeight/1.5}}
+                    />
+                    </div>
+                </div>
+            </BrowserView>
+            <MobileView>
+                <div className="content-container">
+                        <ReactMd fileName="./Home.md" />
+                </div>
+                {alertVisible && <div style={{backgroundColor: "whitesmoke ", borderRadius: 10, margin: 20}}>
+                    <p>We are currently accepting Graduate students. Please send Heman Shakeri your CV if you are interested. December 25, 2020 4:00 pm <p style={{color: "gray", cursor: "pointer"}}
+                    onClick = {() =>{
+                        setAlertVisible(false); 
+                    }}><strong>X Close</strong></p></p>
+                </div>}
+                <div style={{margin: "2vw"}}
+                onClick={() => {
+                   setTwitterVisible(!twitterVisible)
+                }}>
+                    {twitterVisible && <div>
+                        <FaTwitter />
+                        <TwitterTimelineEmbed
+                        sourceType="profile"
+                        screenName="HemanShakeri"
+                        options={{height: window.innerHeight/1.5}}
+                    />
+                    </div>}
+                   
                 </div>
                 <div style={{margin: 10, width: "50vw"}}>
-                <TwitterTimelineEmbed
-                    sourceType="profile"
-                    screenName="HemanShakeri"
-                    // options={{height: 500, width: 500}}
-                    options={{height: 500}}
-                />
+                        <ReactMd fileName="./News.md" />
                 </div>
-            </div>
+            </MobileView>
 
             {/* <Tabs style={{marginTop: 10}}>
                 <TabList style={{display: "flex", alignItems: "left"}}>
