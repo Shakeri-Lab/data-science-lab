@@ -76,12 +76,13 @@ const Home = () => {
                         setAlertVisible(false); 
                     }}><strong>X Close</strong></p></p>
                 </div>}
-                <div style={{margin: "2vw"}}
-                onClick={() => {
-                   setTwitterVisible(!twitterVisible)
-                }}>
+                <div style={{margin: 10}}>
+                    <FaTwitter style={{color: "#1197E8"}}
+                     onClick={() => {
+                        setTwitterVisible(!twitterVisible)
+                     }}
+                    />
                     {twitterVisible && <div>
-                        <FaTwitter />
                         <TwitterTimelineEmbed
                         sourceType="profile"
                         screenName="HemanShakeri"
@@ -90,7 +91,7 @@ const Home = () => {
                     </div>}
                    
                 </div>
-                <div style={{margin: 10, width: "50vw"}}>
+                <div style={{margin: 10}}>
                         <ReactMd fileName="./News.md" />
                 </div>
             </MobileView>
