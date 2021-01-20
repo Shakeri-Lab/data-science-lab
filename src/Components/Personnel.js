@@ -11,7 +11,7 @@ import {
 const Personnel = () => {
     return(
         <div className="App">
-            {!isMobile && <BrowserView>
+            {!isMobile && 
             <div style={{display: "flex", flexDirection: "row", overflow: "auto", margin: 20}}>
                 <div style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", borderRadius: 10, margin: 20, width: 250, cursor: "pointer"}}
                 onClick={() => {
@@ -35,9 +35,8 @@ const Personnel = () => {
                         <p>Undergraduate Research Assistant | University of Virginia</p>
                     </div>
                 </div>
-            </div>
-            </BrowserView>}
-            {isMobile && <MobileView>
+            </div>}
+            {isMobile &&
                 <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
                     <div style={{margin: 30, backgroundColor: "whitesmoke", width: 250, borderRadius: 10}}>
                         <img style={{heigth: 250, width: 20, borderRadius: 10}} src="https://api.dsi.virginia.edu/sites/default/files/styles/square_sm/public/headshots/people/2020-01/Heman_001.png?w=1500" />
@@ -49,8 +48,7 @@ const Personnel = () => {
                         <strong>Noah Beamon</strong>
                         <p>Undergraduate Research Assistant | University of Virginia</p>
                     </div>
-                </div>
-            </MobileView>}
+                </div>}
         </div>
     )
 }
