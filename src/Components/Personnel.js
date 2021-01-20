@@ -39,7 +39,6 @@ const Personnel = () => {
             </BrowserView>}
             {isMobile && 
             <MobileView>
-                <div style={{justifyContent: "center"}}>
                 <div style={{display: "flex", flexDirection: "column", margin: 20}}>
                 <div style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", borderRadius: 10, margin: 20, width: 250, cursor: "pointer"}}
                 onClick={() => {
@@ -62,7 +61,6 @@ const Personnel = () => {
                         <strong>Noah Beamon</strong>
                         <p>Undergraduate Research Assistant | University of Virginia</p>
                     </div>
-                </div>
                 </div>
             </div>
             </MobileView>}
