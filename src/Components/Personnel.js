@@ -39,7 +39,8 @@ const Personnel = () => {
             </BrowserView>}
             {isMobile && 
             <MobileView>
-                <div style={{display: "flex", flexDirection: "column", justifyContent: "center", margin: 20}}>
+                <div style={{justifyContent: "center"}}>
+                <div style={{display: "flex", flexDirection: "column", margin: 20}}>
                 <div style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", borderRadius: 10, margin: 20, width: 250, cursor: "pointer"}}
                 onClick={() => {
                     window.location.href = "HemanShakeri"
@@ -61,6 +62,7 @@ const Personnel = () => {
                         <strong>Noah Beamon</strong>
                         <p>Undergraduate Research Assistant | University of Virginia</p>
                     </div>
+                </div>
                 </div>
             </div>
             </MobileView>}
