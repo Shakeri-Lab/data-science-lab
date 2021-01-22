@@ -61,7 +61,7 @@ const Home = () => {
                         sourceType="profile"
                         screenName="HemanShakeri"
                         // options={{height: 500, width: 500}}
-                        options={{height: window.innerHeight/1.5}}
+                        options={{height: 350}}
                     />
                     </div>
                 </div>
