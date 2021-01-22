@@ -64,14 +64,14 @@ const Personnel = () => {
                 </div>
             </div> */}
             <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
-            <div style={{borderRadius: 10, marginTop: 20, marginBottom: 20, backgroundColor: "whitesmoke"}}>
-                    <img style={{borderRadius: 10, height: 250}} src="https://virginiaequitycenter.org/sites/virginiaequitycenter.org/files/styles/people_crop__200x200_/public/Noah%20Beamon.png?itok=NoEZz7aZ"/>
+                <div style={{borderRadius: 10, margin: 20}}>
+                    <img style={{borderRadius: 10, height: 250}} src="https://api.dsi.virginia.edu/sites/default/files/styles/square_sm/public/headshots/people/2020-01/Heman_001.png?w=1500"/>
                     <div style={{padding: 5}}>
                         <strong>Heman Shakeri</strong>
                         <p>Assistant Professor, School of Data Science | University of Virginia</p>
                     </div>
                 </div>
-                <div style={{borderRadius: 10, marginTop: 20, marginBottom: 20, backgroundColor: "whitesmoke"}}>
+                <div style={{borderRadius: 10, margin: 20}}>
                     <img style={{borderRadius: 10, height: 250}} src="https://virginiaequitycenter.org/sites/virginiaequitycenter.org/files/styles/people_crop__200x200_/public/Noah%20Beamon.png?itok=NoEZz7aZ"/>
                     <div style={{padding: 5}}>
                         <strong>Noah Beamon</strong>
