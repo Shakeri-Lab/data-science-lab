@@ -181,7 +181,7 @@ const Projects = () => {
 
             }
             {filterOpen && <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
-            <div style={{height: "50vh", width: "90vw", borderRadius: 10, backgroundColor: "whitesmoke", padding: 20, margin: 20, display: "flex", flexDirection: "column"}}>
+            <div style={{width: "90vw", borderRadius: 10, backgroundColor: "whitesmoke", padding: 20, margin: 20, display: "flex", flexDirection: "column"}}>
                     <strong style={{fontSize: 25}}>Filter Projects</strong>
                     <div style={{margin: 20}}>
                         <p>Title</p>
