@@ -64,15 +64,19 @@ const Personnel = () => {
                 </div>
             </div> */}
             `<div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
-                <div style={{borderRadius: 10, marginTop: 20, marginBottom: 20}}>
+                <div style={{borderRadius: 10, marginTop: 20, marginBottom: 20, backgroundColor: "whitesmoke"}}>
                     <img style={{borderRadius: 10, height: 250}} src="https://virginiaequitycenter.org/sites/virginiaequitycenter.org/files/styles/people_crop__200x200_/public/Noah%20Beamon.png?itok=NoEZz7aZ"/>
-                    <strong>Noah Beamon</strong>
-                    <p>Undergraduate Research Assistant | University of Virginia</p>
+                    <div style={{padding: 5}}>
+                        <strong>Noah Beamon</strong>
+                        <p>Undergraduate Research Assistant | University of Virginia</p>
+                    </div>
                 </div>
-                <div style={{borderRadius: 10, marginTop: 20, marginBottom: 20}}>
+                <div style={{borderRadius: 10, marginTop: 20, marginBottom: 20, backgroundColor: "whitesmoke"}}>
                     <img style={{borderRadius: 10, height: 250}} src="https://virginiaequitycenter.org/sites/virginiaequitycenter.org/files/styles/people_crop__200x200_/public/Noah%20Beamon.png?itok=NoEZz7aZ"/>
-                    <strong>Noah Beamon</strong>
-                    <p>Undergraduate Research Assistant | University of Virginia</p>
+                    <div style={{padding: 5}}>
+                        <strong>Noah Beamon</strong>
+                        <p>Undergraduate Research Assistant | University of Virginia</p>
+                    </div>
                 </div>
             </div>
             </MobileView>}
