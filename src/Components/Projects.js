@@ -169,14 +169,10 @@ const Projects = () => {
                                 }}
                                 >
                                     <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
-                                        <div style={{justifyContent: "center", width: 500}}>
-                                            <img style={{width: 250, height: 150, borderRadius: 5}} src={val.imageUrl}/>
-                                        </div>  
-                                        <div style={{width: 1000}}>
-                                            <strong>{val.title}</strong>
-                                            <p>{val.description}</p>
-                                            <p>tags: {val.tags}</p>
-                                        </div>
+                                        <img style={{width: 250, height: 150, borderRadius: 5}} src={val.imageUrl}/>
+                                        <strong>{val.title}</strong>
+                                        <p>{val.description}</p>
+                                        <p>tags: {val.tags}</p>
                                     </div>
                                 </div>)
                             })}
