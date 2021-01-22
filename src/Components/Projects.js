@@ -168,8 +168,8 @@ const Projects = () => {
                                     window.location.href=val.url;  
                                 }}
                                 >
-                                    <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
-                                        <img style={{width: 250, height: 150, borderRadius: 5}} src={val.imageUrl}/>
+                                    <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                                        <img style={{width: 250, height: 150, borderRadius: 5, margin: 10, justifyContent: "center", alignItems: "center"}} src={val.imageUrl}/>
                                         <strong>{val.title}</strong>
                                         <p>{val.description}</p>
                                         <p>tags: {val.tags}</p>
