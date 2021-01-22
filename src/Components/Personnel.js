@@ -12,7 +12,7 @@ const Personnel = () => {
     return(
         <div className="App">
             {!isMobile && <BrowserView>
-            <div style={{display: "flex", flexDirection: "row", overflow: "auto", margin: 20}}>
+            <div style={{display: "flex", flexDirection: "row", margin: 20}}>
                 <div style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", borderRadius: 10, margin: 20, width: 250, cursor: "pointer"}}
                 onClick={() => {
                     window.location.href = "HemanShakeri"
@@ -39,7 +39,7 @@ const Personnel = () => {
             </BrowserView>}
             {isMobile && 
             <MobileView>
-                <div style={{display: "flex", flexDirection: "column", margin: 20}}>
+                {/* <div style={{display: "flex", flexDirection: "column", margin: 20}}>
                 <div style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", borderRadius: 10, margin: 20, width: 250, cursor: "pointer"}}
                 onClick={() => {
                     window.location.href = "HemanShakeri"
@@ -61,6 +61,18 @@ const Personnel = () => {
                         <strong>Noah Beamon</strong>
                         <p>Undergraduate Research Assistant | University of Virginia</p>
                     </div>
+                </div>
+            </div> */}
+            `<div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
+                <div style={{borderRadius: 10, marginTop: 20, marginBottom: 20}}>
+                    <img style={{borderRadius: 10, height: 250}} src="https://virginiaequitycenter.org/sites/virginiaequitycenter.org/files/styles/people_crop__200x200_/public/Noah%20Beamon.png?itok=NoEZz7aZ"/>
+                    <strong>Noah Beamon</strong>
+                    <p>Undergraduate Research Assistant | University of Virginia</p>
+                </div>
+                <div style={{borderRadius: 10, marginTop: 20, marginBottom: 20}}>
+                    <img style={{borderRadius: 10, height: 250}} src="https://virginiaequitycenter.org/sites/virginiaequitycenter.org/files/styles/people_crop__200x200_/public/Noah%20Beamon.png?itok=NoEZz7aZ"/>
+                    <strong>Noah Beamon</strong>
+                    <p>Undergraduate Research Assistant | University of Virginia</p>
                 </div>
             </div>
             </MobileView>}
