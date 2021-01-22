@@ -181,7 +181,7 @@ const Projects = () => {
 
             }
             {filterOpen && <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
-            <div style={{height: "100vh", width: "100vw", borderRadius: 10, backgroundColor: "whitesmoke", padding: 20, margin: 20, display: "flex", flexDirection: "column"}}>
+            <div style={{height: "50vh", width: "90vw", borderRadius: 10, backgroundColor: "whitesmoke", padding: 20, margin: 20, display: "flex", flexDirection: "column"}}>
                     <strong style={{fontSize: 25}}>Filter Projects</strong>
                     <div style={{margin: 20}}>
                         <p>Title</p>
@@ -239,9 +239,9 @@ const Projects = () => {
                                 <strong style={{color: "white"}}>Clear</strong>
                     </div>
                 </div>
-                <div style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", borderRadius: 10, padding: 20, margin: 20, height: "100vh", width: "100vw"}}>
+                <div style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", borderRadius: 10, padding: 20, margin: 20, height: "50vh", width: "90vw"}}>
                     <strong style={{fontSize: 25, marginBottom: 10}}>Projects</strong>
-                        <div style={{overflowY: "scroll", height: "90vh"}}>
+                        <div style={{overflowY: "scroll", height: "80vh"}}>
                             {ProjectsJSON.filter((val)=>{
                                 if (inputTitle == "" && inputTags == "" && inputDescription == "") {
                                     return val; 
@@ -255,15 +255,11 @@ const Projects = () => {
                                     window.location.href=val.url;  
                                 }}
                                 >
-                                        <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
-                                        <div style={{justifyContent: "center", width: "40vw"}}>
-                                            <img style={{width: 250, height: 150, borderRadius: 5, marginLeft: 20}} src={val.imageUrl}/>
-                                        </div>
-                                        <div style={{width: 1000}}>
-                                            <strong>{val.title}</strong>
-                                            <p>{val.description}</p>
-                                            <p>tags: {val.tags}</p>
-                                        </div>    
+                                       <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                                        <img style={{width: 250, height: 150, borderRadius: 5, margin: 10, justifyContent: "center", alignItems: "center"}} src={val.imageUrl}/>
+                                        <strong>{val.title}</strong>
+                                        <p>{val.description}</p>
+                                        <p>tags: {val.tags}</p>
                                     </div>
                                 </div>)
                             })}
