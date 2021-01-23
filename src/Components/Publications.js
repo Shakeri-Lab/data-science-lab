@@ -66,7 +66,7 @@ const Publications = () => {
             }
             {filterOpen && <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
                 <div style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", borderRadius: 10, padding: 20, margin: 20, height: "100vh", width: "60vw"}}>
-                    <strong style={{fontSize: 25, marginBottom: 10}}>Projects</strong>
+                    <strong style={{fontSize: 25, marginBottom: 10}}>Publications</strong>
                         <div style={{overflowY: "scroll", height: "90vh"}}>
                             {PublicationsJSON.filter((val)=>{
                                 if (inputTitle == "" && inputJournal == "" && inputYear =="" && inputDescription == "") {
@@ -268,7 +268,7 @@ const Publications = () => {
                     </div>
                 </div>
                 <div style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", borderRadius: 10, padding: 20, margin: 20, height: "50vh", width: "90vw"}}>
-                    <strong style={{fontSize: 25, marginBottom: 10}}>Projects</strong>
+                    <strong style={{fontSize: 25, marginBottom: 10}}>Publications</strong>
                         <div style={{overflowY: "scroll", height: "80vh"}}>
                             {PublicationsJSON.filter((val)=>{
                                 if (inputTitle == "" && inputJournal == "" && inputYear == "" && inputDescription == "") {
