@@ -31,7 +31,7 @@ This project is a resource website which includes web applications and lab infor
 ## Edit the website Home Screen
 ### Site description (upper text)
 
-1. Open src/Components/Home.md
+Open src/Components/Home.md
 
 ### Alert (lower left text)
 
