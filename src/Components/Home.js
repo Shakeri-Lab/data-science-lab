@@ -98,7 +98,9 @@ const Home = () => {
             </BrowserView>}
             {isMobile && <MobileView style={{margin: 10}}>
                 <div className="content-container">
-                    <ReactMarkdown source={text1} />
+                    <div style={{margin: 20, textAlign: "left" }}>
+                        <ReactMarkdown source={text1} /> 
+                    </div>
                 </div>
                 {alertVisible && <div style={{backgroundColor: "whitesmoke ", borderRadius: 10, margin: 20}}>
                 <ReactMarkdown source={text2} />
@@ -123,7 +125,9 @@ const Home = () => {
                    
                 </div>
                 <div style={{margin: 10}}>
-                    <ReactMarkdown source={text3} />
+                    <div style={{textAlign: "left"}}>
+                        <ReactMarkdown source={text3} />
+                    </div>
                 </div>
             </MobileView>}
 
