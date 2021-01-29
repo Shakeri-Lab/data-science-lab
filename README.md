@@ -2,10 +2,9 @@
 
 Published January 14, 2021
 
-
 ## Production Link
 
-[Production Link](https://shakeriresearchgroup.vercel.app/)
+[Production Link](https://www.hemanshakeri.com/)
 
 ## Summary
 
