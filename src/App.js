@@ -16,6 +16,12 @@ import Allofus from "./Components/Projects/Allofus";
 import Wastewater from "./Components/Projects/Wastewater"; 
 import Wastewatertracker from "./Components/Projects/Wastewatertracker"; 
 
+//publications
+import Multiplex from "./Components/Publications/Multiplex";
+
+//teaching
+import MaterialA from "./Components/Teaching/MaterialA"
+
 //personnel
 import HemanShakeri from "./Components/Personnel/HemanShakeri"; 
 
@@ -45,9 +51,13 @@ function App() {
             <Allofus />
           </Route>
           {/*Publications*/}
-
+          <Route path="/Multiplex" component={Multiplex}>
+            <Multiplex />
+          </Route>
           {/*Teaching/Lectures*/}
-
+          <Route path="/MaterialA" component={MaterialA}>
+            <MaterialA />
+          </Route>
           {/*Personnel*/}
           <Route path="/HemanShakeri" component={HemanShakeri}>
             <HemanShakeri />

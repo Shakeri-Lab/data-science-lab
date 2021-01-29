@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ReactMd from 'react-md-file';
+import ReactMarkdown from 'react-markdown'
+import MarkdownPath1 from "./Home.md"
+import MarkdownPath2 from "./Alert.md"
+import MarkdownPath3 from "./News.md"
 import "./Home.css"; 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -37,24 +40,51 @@ const Home = () => {
 
     // const[buttonColor, setButtonColor] = useState("rgba(46, 61, 130, 1)");
 
+    var[text1, setText1] = useState(null)
+    var[text2, setText2] = useState(null)
+    var[text3, setText3] = useState(null)
+
+    useEffect(() => {
+        fetch(MarkdownPath1).then((response) => response.text()).then((text) => {
+            setText1(text); 
+        })
+    }, []);
+
+    useEffect(() => {
+        fetch(MarkdownPath2).then((response) => response.text()).then((text) => {
+            setText2(text); 
+        })
+    }, []);
+
+    useEffect(() => {
+        fetch(MarkdownPath3).then((response) => response.text()).then((text) => {
+            setText3(text); 
+        })
+    }, []);
+
+
+
     const[twitterVisible, setTwitterVisible] = useState(false);
     const[alertVisible, setAlertVisible] = useState(true);
 
     return(
         <div className="App">
             {!isMobile && <BrowserView>
-                <div className="content-container">
-                    <ReactMd fileName="./Home.md" />
+                <div style={{margin: 20, textAlign: "left"}}>
+                    <ReactMarkdown source={text1} />
                 </div>
                 {alertVisible && <div style={{backgroundColor: "whitesmoke ", borderRadius: 10, margin: 20}}>
-                    <p>We are currently accepting Graduate students. Please send Heman Shakeri your CV if you are interested. December 27, 2020 4:00 pm <p style={{color: "gray", cursor: "pointer"}}
+                    <ReactMarkdown source={text2} />
+                    <p style={{color: "gray", cursor: "pointer"}}
                     onClick = {() =>{
                         setAlertVisible(false); 
-                    }}><strong>X Close</strong></p></p>
+                    }}><strong>X Close</strong></p>
                 </div>}
                 <div style={{display: "flex", flexDirection: "row", margin: 20}}>
                     <div style={{margin: 10, width: "50vw", height: window.innerHeight/1.5, overflow: "auto"}}>
-                        <ReactMd fileName="./News.md" />
+                        <div style={{textAlign: "left"}}>
+                            <ReactMarkdown source={text3} />
+                        </div>
                     </div>
                     <div style={{margin: 10, width: "50vw"}}>
                     <TwitterTimelineEmbed
@@ -68,13 +98,16 @@ const Home = () => {
             </BrowserView>}
             {isMobile && <MobileView style={{margin: 10}}>
                 <div className="content-container">
-                        <ReactMd fileName="./Home.md" />
+                    <div style={{margin: 20, textAlign: "left" }}>
+                        <ReactMarkdown source={text1} /> 
+                    </div>
                 </div>
                 {alertVisible && <div style={{backgroundColor: "whitesmoke ", borderRadius: 10, margin: 20}}>
-                    <p>We are currently accepting Graduate students. Please send Heman Shakeri your CV if you are interested. December 25, 2020 4:00 pm <p style={{color: "gray", cursor: "pointer"}}
+                <ReactMarkdown source={text2} />
+                    <p style={{color: "gray", cursor: "pointer"}}
                     onClick = {() =>{
                         setAlertVisible(false); 
-                    }}><strong>X Close</strong></p></p>
+                    }}><strong>X Close</strong></p>
                 </div>}
                 <div style={{margin: 10}}>
                     <FaTwitter style={{color: "#1197E8"}} size={30}
@@ -92,7 +125,9 @@ const Home = () => {
                    
                 </div>
                 <div style={{margin: 10}}>
-                        <ReactMd fileName="./News.md" />
+                    <div style={{textAlign: "left"}}>
+                        <ReactMarkdown source={text3} />
+                    </div>
                 </div>
             </MobileView>}
 

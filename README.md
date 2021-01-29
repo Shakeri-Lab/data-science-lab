@@ -5,20 +5,16 @@ Published January 14, 2021
 
 ## Production Link
 
-<a target="_blank" href="">Coming Soon</a>
-
-## Live Demo Link
-
-<a target="_blank" href="https://shakerilab.herokuapp.com/">demo</a>
+[Production Link](https://shakeriresearchgroup.vercel.app/)
 
 ## Summary
 
-This project is a resource website which presents lab information for the Shakeri Lab. The site includes a Home screen which stores News infromation and allows the lab to make announcements. Additionally, the site allows the lab to display lab personnel with individual bios. Further, projects, publications, and teaching/learning material can be uploaded and linked to the site; this insformation can be filtered by the user. Individual blogs and contact information can be posted in a markdown file.
+This project is a resource website which includes web applications and lab information for the Shakeri Research Group.
 
 ## Run this project locally
 
-1. Make sure that Javascript is installed on your machine. You can install Node.js <a target="_blank" href="https://nodejs.org/en/">here</a>. 
-2. Clone this repository ("git clone https://github.com/Shakeri-Lab/data-science-lab") using your terminal. If you are not using a unix OS (Mac or Linux) and don't already have a unix terminal emulator, <a target="_blank" href="https://git-scm.com/downloads">install git bash here</a>.
+1. Make sure that Javascript is installed on your machine. You can install Node.js [here](https://nodejs.org/en/). 
+2. Clone this repository ("git clone https://github.com/Shakeri-Lab/data-science-lab") using your terminal. If you are not using a unix OS (Mac or Linux) and don't already have a unix terminal emulator; [install git bash here](https://git-scm.com/downloads). 
 3. cd into the project folder (data-science-lab) from your terminal
 4. run "npm install"
 5. run "npm start". A new browser tab will open displaying the local copy of the project.
@@ -32,38 +28,48 @@ This project is a resource website which presents lab information for the Shaker
 5. run "git commit -m "whatever_you_want_here"
 6. run "git push"
 
-**I will add more instructions for this section when the site is hosted in production with continuous integration enabled**
-
 ## Edit the website Home Screen
 ### Site description (upper text)
 
-1. Open public/Home.md and make changes
+Open src/Components/Home.md
+
+### Alert (lower left text)
+
+Open src/Components/Alert.md
 
 ### News (lower left text)
 
-1. Open public/News.md and make changes
+Open src/Components/News.md
 
 ## Edit the Blog Tab
 
-1. Open public/Blog.md and make changes
+Open src/Components/Blog.md
 
 ## Edit the Contact Tab
 
-1. Open public/Contact.md and make changes
+Open src/Components/Contact.md
 
 ## Add a personal bio
 
-1. Inside public folder, create a file "FirstnameLastname.md". Add your bio content.
+1. Inside src/Components/Personnel folder, create a file "FirstnameLastname.md". Add your bio content.
 2. Inside src/Components/Personnel create a file "FirstnameLastname.js":
 
-            import React, { useState } from 'react';
-            import ReactMd from 'react-md-file';
+            import React, { useState, useEffect } from 'react';
+            import ReactMarkdown from 'react-markdown'
+            import MarkdownPath from "./FirstnameLastname.md"
 
             const FirstnameLastname = () => {
+                var[text, setText] = useState(null)
+                useEffect(() => {
+                    fetch(MarkdownPath).then((response) => response.text()).then((text) => {
+                        setText(text); 
+                    })
+                }, []);
+
                 return(
                     <div className="App">
-                        <div className="content-container">
-                            <ReactMd fileName="./FirstnameLastname.md" />
+                        <div style={{margin: 20, textAlign: "left"}}>
+                            <ReactMarkdown source={text} />
                         </div>
                     </div>
                 )
@@ -71,25 +77,39 @@ This project is a resource website which presents lab information for the Shaker
 
             export default FirstnameLastname; 
 
-3. Open src/Components/Personnel.js. Inside of the second div tag add the following code:
+3. Open src/Components/Personnel.js. At line 36 inside the "BrowserView" and first "div" tags insert:
 
-        <div style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", borderRadius: 10, margin: 20, width: 250, cursor: "pointer"}}
+            <div style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", borderRadius: 10, margin: 20, width: 250, cursor: "pointer"}}
+            onMouseClick={() => {
+                window.location.href = "FirstnameLastname"
+            }}
+            >
+                <img style={{borderRadius: 10, height: 250}} src="A_LINK_TO_YOUR_PROFILE_PHOTO" />
+                <div style={{padding: 5}}>
+                    <strong>Firstname Lastname</strong>
+                    <p>WHAT YOU DO | INSTITUTION</p>
+                </div>
+            </div>
+
+4. At line 63 inside the "MobileView" and first "div" tags insert:
+
+             <div style={{borderRadius: 10, margin: 20}}
                 onClick={() => {
                     window.location.href = "FirstnameLastname"
                 }}
                 >
-                    <img style={{borderRadius: 10, height: 250}} src="A_Link_To_Your_Profile_Pic" />
-                    <div style={{padding: 5}}>
-                        <strong>Firstname Lastname</strong>
-                        <p>What_you_do | Institution</p>
-                    </div>
+                <img style={{borderRadius: 10, height: 250}} src="A_LINK_TO_YOUR_PROFILE_PHOTO"/>
+                <div style={{padding: 5}}>
+                    <strong>Firstname Lastname</strong>
+                    <p>WHAT YOU DO | INSTITUTION</p>
                 </div>
+            </div>
 
-4. Open src/App.js. Under the "//personnel" comment insert:
+5. Open src/App.js. Under the "//personnel" comment at line 25 insert:
 
         import FirstnameLastname from "./Components/Personnel/FirstnameLastname"; 
 
-5. Under the "{/*Personnel*/}" comment add the following code:
+6. Under the "{/*Personnel*/}" comment at line 61 insert:
 
           <Route path="/FirstnameLastname" component={FirstnameLastname}>
             <FirstnameLastname />
@@ -97,110 +117,120 @@ This project is a resource website which presents lab information for the Shaker
 
 ## Add a new Project in the "Project" Tab
 
-1. Inside public folder, create a file "Atitle.md". Add your project content.
-2. Open src/Components/Projects.json
-3. In the top of the JSON object add a new element in the following format:
+1. Inside src/Components/Projects folder, create a file "AProjectTitle.md". Add your project content.
+2. Open src/Components/Projects.json. In the top of the JSON object add a new element in the following format:
 
-        {"title": "Project_Title", "description": "A_description", "tags": "#project #tag", "url": "Atitle", "imageUrl": "anImageSourceURL"},
+            {"title": "Project_Title", "description": "A_description", "tags": "#project #tag", "url": "Atitle", "imageUrl": "anImageSourceURL"},
     
-4. Open src/Components/Projects folder
-5. Create a new file "Atitle.js" and insert the following code:
+3. Open src/Components/Projects folder. Create a new file "AProjectTitle.js":
 
-        import React, { useState } from 'react';
-        import ReactMd from 'react-md-file';
+            import React, { useState, useEffect } from 'react';
+            import ReactMarkdown from 'react-markdown'
+            import MarkdownPath from "./AProjectTitle.md"
 
-        const Atitle = () => {
-            return(
-                <div className="App">
-                    <div className="content-container">
-                        <ReactMd fileName="./Atitle.md" />
+            const AProjectTitle = () => {
+                var[text, setText] = useState(null)
+                useEffect(() => {
+                    fetch(MarkdownPath).then((response) => response.text()).then((text) => {
+                        setText(text); 
+                    })
+                }, []);
+
+                return(
+                    <div className="App">
+                        <div style={{margin: 20, textAlign: "left"}}>
+                            <ReactMarkdown source={text} />
+                        </div>
                     </div>
-                </div>
-            )
-        }
+                )
+            }
 
-        export default Atitle; 
+            export default AProjectTitle; 
 
-6. Open src/App.js. Under the "//projects" comment insert:
+4. Open src/App.js. Under the "//projects" comment at line 14 insert:
 
-        import Atitle from "./Components/Projects/Atitle"; 
+        import AProjectTitle from "./Components/Projects/AProjectTitle"; 
 
-7. Under the "{/*Projects*/}" comment add the following code:
+5. Under the "{/*Projects*/}" comment at line 43 insert:
 
-        <Route path="/Atitle" component={Atitle}>
-            <Atitle />
+        <Route path="/AProjectTitle" component={AProjectTitle}>
+            <AProjectTitle />
         </Route>
 
 ## Add a new Publication in the "Publication" Tab
 
-1. Inside public folder, create a file "Atitle.md". Add your publication content.
-2. Open src/Components/Publications.json
-3. In the top of the JSON object add a new element in the following format:
+1. Inside src/Components/Publications folder, create a file "APublicationTitle.md". Add your publication content.
+2. Open src/Components/Publications.json. In the top of the JSON object add a new element in the following format:
 
         {"title": "Publication_Title", "journal": "Journal Name", "year": "YYYY", "url": "Atitle", "description": "A_description", "imageUrl": "anImageSourceURL"},
     
-4. Open src/Components/Publications folder
-5. Create a new file "Atitle.js" and insert the following code:
+3. Open src/Components/Publications folder and create a new file "APublicationTitle.js" and insert the following code:
 
-        import React, { useState } from 'react';
-        import ReactMd from 'react-md-file';
+            import React, { useState, useEffect } from 'react';
+            import ReactMarkdown from 'react-markdown'
+            import MarkdownPath from "./APublicationTitle.md"
 
-        const Atitle = () => {
-            return(
-                <div className="App">
-                    <div className="content-container">
-                        <ReactMd fileName="./Atitle.md" />
+            const APublicationTitle = () => {
+                var[text, setText] = useState(null)
+                useEffect(() => {
+                    fetch(MarkdownPath).then((response) => response.text()).then((text) => {
+                        setText(text); 
+                    })
+                }, []);
+
+                return(
+                    <div className="App">
+                        <div style={{margin: 20, textAlign: "left"}}>
+                            <ReactMarkdown source={text} />
+                        </div>
                     </div>
-                </div>
-            )
-        }
+                )
+            }
 
-        export default Atitle; 
+            export default APublicationTitle; 
 
-6. Open src/App.js. Under the "//publications" comment insert:
+4. Open src/App.js. Under the "//publications" comment at line 19 insert:
 
-        import Atitle from "./Components/Publications/Atitle"; 
+        import APublicationTitle from "./Components/Publications/APublicationTitle"; 
 
-7. Under the "{/*Publications*/}" comment add the following code:
+5. Under the "{/*Publications*/}" comment at line 53 insert:
 
-        <Route path="/Atitle" component={Atitle}>
-            <Atitle />
+        <Route path="/APublicationTitle" component={APublicationTitle}>
+            <APublicationTitle />
         </Route>
 
 ## Add a new Teaching/Lecture in the "Teaching/Lecture" Tab
 
-1. Inside public folder, create a file "Atitle.md". Add your Teaching/Lecture content.
-2. Open src/Components/Teaching.json
-3. In the top of the JSON object add a new element in the following format:
+1. Inside src/Components/Teaching folder, create a file "ATeachingTitle.md". Add your Teaching/Lecture content.
+2. Open src/Components/Teaching.json. In the top of the JSON object add a new element in the following format:
 
         {"title": "Teaching/Lecture Title", "tags": "#teaching #tag", "date": "Jan 01, 2021", "url": "Atitle", "description": "A_description", "imageUrl": "anImageSourceURL"},
     
-4. Open src/Components/Teaching folder
-5. Create a new file "Atitle.js" and insert the following code:
+3. Open src/Components/Teaching folder. Create a new file "ATeachingTitle.js" and insert the following code:
 
         import React, { useState } from 'react';
         import ReactMd from 'react-md-file';
 
-        const Atitle = () => {
+        const ATeachingTitle = () => {
             return(
                 <div className="App">
                     <div className="content-container">
-                        <ReactMd fileName="./Atitle.md" />
+                        <ReactMd fileName="./ATeachingTitle.md" />
                     </div>
                 </div>
             )
         }
 
-        export default Atitle; 
+        export default ATeachingTitle; 
 
-6. Open src/App.js. Under the "//teachings" comment insert:
+4. Open src/App.js. Under the "//teaching" comment at line 22 insert:
 
-        import Atitle from "./Components/Teachings/Atitle"; 
+        import Atitle from "./Components/Teachings/ATeachingTitle"; 
 
-7. Under the "{/*Teachings*/}" comment add the following code:
+5. Under the "{/*Teaching/Lectures*/}" comment at line 57 insert:
 
-        <Route path="/Atitle" component={Atitle}>
-            <Atitle />
+        <Route path="/ATeachingTitle" component={ATeachingTitle}>
+            <ATeachingTitle />
         </Route>
 
 <hr></hr>

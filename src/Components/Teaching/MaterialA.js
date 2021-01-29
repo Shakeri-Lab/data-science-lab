@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown'
-import MarkdownPath from "./Wastewater.md"
+import MarkdownPath from "./MaterialA.md"
 
-const Wastewater = () => {
+const MaterialA = () => {
     var[text, setText] = useState(null)
     useEffect(() => {
         fetch(MarkdownPath).then((response) => response.text()).then((text) => {
@@ -19,4 +19,4 @@ const Wastewater = () => {
     )
 }
 
-export default Wastewater; 
+export default MaterialA; 
