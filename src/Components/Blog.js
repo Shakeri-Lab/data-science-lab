@@ -11,7 +11,7 @@ const Blog = () => {
       }, []);
 
     return(
-        <div className="App">
+        <div className="App" style={{marginTop: 80}}>
             <div style={{margin: 20, textAlign: "left"}}>
                 <ReactMarkdown source={text} />
             </div>

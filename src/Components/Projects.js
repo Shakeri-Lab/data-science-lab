@@ -21,7 +21,7 @@ const Projects = () => {
     const[filterOpen, setFilterOpen] = useState(false); 
 
     return(
-        <div className="App">
+        <div className="App" style={{marginTop: 80}}>
             <h1 style={{margin: 20}}><strong>Projects</strong></h1>
             <p style={{margin: 20}}>Click an item in the list to open the project content or  
             <strong
@@ -54,9 +54,9 @@ const Projects = () => {
                                             <p>{val.description}</p>
                                             <p>tags: {val.tags}</p>
                                         </div>
-                                        <div style={{justifyContent: "center", width: 500}}>
+                                        {/* <div style={{justifyContent: "center", width: 500}}>
                                             <img style={{width: 250, height: 150, borderRadius: 5}} src={val.imageUrl}/>
-                                        </div>    
+                                        </div>     */}
                                     </div>
                                 </div>)
                             })}
@@ -87,9 +87,9 @@ const Projects = () => {
                                             <p>{val.description}</p>
                                             <p>tags: {val.tags}</p>
                                         </div>
-                                        <div style={{justifyContent: "center", width: "40vw"}}>
+                                        {/* <div style={{justifyContent: "center", width: "40vw"}}>
                                             <img style={{width: 250, height: 150, borderRadius: 5, marginLeft: 20}} src={val.imageUrl}/>
-                                        </div>    
+                                        </div>     */}
                                     </div>
                                 </div>)
                             })}

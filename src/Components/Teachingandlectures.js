@@ -21,7 +21,7 @@ const Teachingandlectures = () => {
     const[filterOpen, setFilterOpen] = useState(false); 
 
     return(
-        <div className="App">
+        <div className="App" style={{marginTop: 80}}>
             <h1 style={{margin: 20}}><strong>Teaching and Lectures</strong></h1>
             <p style={{margin: 20}}>Click an item in the list to open the content or  
             <strong
@@ -54,9 +54,9 @@ const Teachingandlectures = () => {
                                             <p>{val.date}</p>
                                             <p>{val.description}</p>
                                         </div>
-                                        <div style={{justifyContent: "center", width: 500}}>
+                                        {/* <div style={{justifyContent: "center", width: 500}}>
                                             <img style={{width: 250, height: 150, borderRadius: 5}} src={val.imageUrl}/>
-                                        </div>    
+                                        </div>     */}
                                     </div>
                                 </div>)
                             })}
@@ -86,9 +86,9 @@ const Teachingandlectures = () => {
                                             <p>{val.date}</p>
                                             <p>{val.description}</p>
                                         </div>
-                                        <div style={{justifyContent: "center", width: "40vw"}}>
+                                        {/* <div style={{justifyContent: "center", width: "40vw"}}>
                                             <img style={{width: 250, height: 150, borderRadius: 5, marginLeft: 20}} src={val.imageUrl}/>
-                                        </div>    
+                                        </div>     */}
                                     </div>
                                 </div>)
                             })}

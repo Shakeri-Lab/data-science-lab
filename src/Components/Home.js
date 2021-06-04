@@ -68,7 +68,7 @@ const Home = () => {
     const[alertVisible, setAlertVisible] = useState(true);
 
     return(
-        <div className="App">
+        <div className="App" style={{marginTop: 80}}>
             {!isMobile && <BrowserView>
                 <div style={{margin: 20, textAlign: "left"}}>
                     <ReactMarkdown source={text1} />

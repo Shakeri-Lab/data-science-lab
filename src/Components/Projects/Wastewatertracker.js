@@ -21,7 +21,7 @@ import NewportNewsLimits from './NewportNews.json';
 // import Data2 from './Data2.json';
 import './Wastewatertracker.css';
 import { BarChart, LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Bar, Line, Label } from "recharts"; 
-import { chartData1a, chartData2a, chartData3a, chartData4a } from "./ChartData.js"; 
+import { chartData1a, chartData2a, chartData3a, chartData4a, simInfectedFromFile } from "./ChartData.js"; 
 import Switch from "react-switch";
 
 var dateFormat = require("dateformat");
@@ -72,6 +72,8 @@ const Wastewatertracker = () => {
     const object3b = list3b
     const object4b = list4b
 
+    const simInfected = simInfectedFromFile
+
     var i;
     for (i = 0; i < object.length; i++){
       var x = object[i].report_date
@@ -82,10 +84,16 @@ const Wastewatertracker = () => {
     var chartData1b = []
     var chartData2b = chartData1b
 
+    
+
     var j;
     for (j = 1; j < object.length; j++){
       var x = object[j].total_cases - object[j-1].total_cases
-      chartData1b.push({"date": dateFormat(object[j].report_date, "mmm dd, yyyy"), "cases reported": x, "predicted cases": 0})
+      if (x < 0){
+          x = "negative cases reported on this date"
+      }
+      var y = simInfected[j-1].Infected
+      chartData1b.push({"date": dateFormat(object[j].report_date, "mmm dd, yyyy"), "cases reported": x, "predicted infections": y})
     }
 
     var k;
@@ -100,7 +108,8 @@ const Wastewatertracker = () => {
     var l;
     for (l = 1; l < object3b.length; l++){
       var x = object3b[l].total_cases - object3b[l-1].total_cases
-      chartData3b.push({"date": dateFormat(object3b[l].report_date, "mmm dd, yyyy"), "cases reported": x, "predicted cases": 0})
+      var y = simInfected[l-1].Infected
+      chartData3b.push({"date": dateFormat(object3b[l].report_date, "mmm dd, yyyy"), "cases reported": x, "predicted infections": y})
     }
 
     var m;
@@ -115,7 +124,8 @@ const Wastewatertracker = () => {
     var n;
     for (n = 1; n < object4b.length; n++){
       var x = object4b[n].total_cases - object4b[n-1].total_cases
-      chartData4b.push({"date": dateFormat(object4b[n].report_date, "mmm dd, yyyy"), "cases reported": x, "predicted cases": 0})
+      var y = simInfected[n-1].Infected
+      chartData4b.push({"date": dateFormat(object4b[n].report_date, "mmm dd, yyyy"), "cases reported": x, "predicted infections": y})
     }
 
     window.onresize = function() {    
@@ -250,13 +260,13 @@ const Wastewatertracker = () => {
       const [checked, setChecked] = useState(true); 
 
     return(
-        <div className="App">
+        <div className="App" style={{marginTop: 80}}>
             <div style={{margin: 20}}>
                 <h2><strong>Virginia Wastewater Reports</strong></h2>
                 <GiWaterRecycling style={{color: 'rgba(52, 220, 235, 1)'}} size={35}/>
             </div>
             
-            <strong style ={{color: "grey"}}>Click a location on the map to view its wastewater report and predicted cases.</strong>
+            <strong style ={{color: "grey"}}>Click a location on the map to view its wastewater report and predicted infections.</strong>
             <div style={{display: "flex", flexDirection: "column", justifyContent: "center", margin: 20}}>
                 <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
                 <div style={{ width: "50vw", borderBottom: tabBorderColor, cursor: "pointer", backgroundColor: "whitesmoke", borderTopLeftRadius: 10, borderBottomLeftRadius: 10}}
@@ -733,29 +743,29 @@ const Wastewatertracker = () => {
                     </LineChart>
                 </div>}
                 {(checked && (showChart === null || showChart === 0)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Daily Reported Cases</h4>
-                    <BarChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData1b}>
+                    <h4>Daily reported cases and predicted infections</h4>
+                    <BarChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData1b}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis  domain={[0, 'dataMax']} tickFormatter={DataFormaterY}>
-                        <Label value="cases reported" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis  domain={[0, 750]} tickFormatter={DataFormaterY}>
+                        <Label value="Reported cases and predicted infections" position="insideBottomLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
                         <Bar dataKey="cases reported" fill="#000000"/>
-                        <Bar dataKey="predicted cases" fill="#aaacab"/>
+                        <Bar dataKey="predicted infections" fill="#aaacab"/>
                     </BarChart>
                 </div>}
                 {(!checked && (showChart === null || showChart === 0)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Daily Reported Cases</h4>
-                    <LineChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData1b}>
+                    <h4>Daily reported cases and predicted infections</h4>
+                    <LineChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData1b}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis tickFormatter={DataFormaterY} domain={[0, 'dataMax']}>
-                        <Label value="cases reported" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis tickFormatter={DataFormaterY} domain={[0, 750]}>
+                        <Label value="Reported cases and predicted infections" position="insideBottomLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
                         <Line dataKey="cases reported" stroke="#000000" dot={false}/>
-                        <Line dataKey="predicted cases" stroke="#aaacab" dot={false}/>
+                        <Line dataKey="predicted infections" stroke="#aaacab" dot={false}/>
                     </LineChart>
                 </div>}
                 {(checked && (showChart === 1)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
@@ -783,29 +793,29 @@ const Wastewatertracker = () => {
                     </LineChart>
                 </div>}
                 {(checked && (showChart === 1)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Daily Reported Cases</h4>
-                    <BarChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData2b}>
+                    <h4>Daily reported cases and predicted infections</h4>
+                    <BarChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData2b}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis  domain={[0, 'dataMax']} tickFormatter={DataFormaterY}>
-                        <Label value="cases reported" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis  domain={[0, 750]} tickFormatter={DataFormaterY}>
+                        <Label value="Reported cases and predicted infections" position="insideBottomLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
                         <Bar dataKey="cases reported" fill="#000000"/>
-                        <Bar dataKey="predicted cases" fill="#aaacab"/>
+                        <Bar dataKey="predicted infections" fill="#aaacab"/>
                     </BarChart>
                 </div>}
                 {(!checked && (showChart === 1)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Daily Reported Cases</h4>
-                    <LineChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData2b}>
+                    <h4>Daily reported cases and predicted infections</h4>
+                    <LineChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData2b}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis tickFormatter={DataFormaterY} domain={[0, 'dataMax']}>
-                        <Label value="cases reported" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis tickFormatter={DataFormaterY} domain={[0, 750]}>
+                        <Label value="Reported cases and predicted infections" position="insideBottomLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
                         <Line dataKey="cases reported" stroke="#000000" dot={false}/>
-                        <Line dataKey="predicted cases" stroke="#aaacab" dot={false}/>
+                        <Line dataKey="predicted infections" stroke="#aaacab" dot={false}/>
                     </LineChart>
                 </div>}
                 </div>}
@@ -844,29 +854,29 @@ const Wastewatertracker = () => {
                     </LineChart>
                 </div>}
                 {(checked && (showChart === 2)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Daily Reported Cases</h4>
-                    <BarChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData3b}>
+                    <h4>Daily reported cases and predicted infections</h4>
+                    <BarChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData3b}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis  domain={[0, 'dataMax']} tickFormatter={DataFormaterY}>
-                        <Label value="cases reported" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis  domain={[0, 750]} tickFormatter={DataFormaterY}>
+                        <Label value="Reported cases and predicted infections" position="insideBottomLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
                         <Bar dataKey="cases reported" fill="#000000"/>
-                        <Bar dataKey="predicted cases" fill="#aaacab"/>
+                        <Bar dataKey="predicted infections" fill="#aaacab"/>
                     </BarChart>
                 </div>}
                 {(!checked && (showChart === 2)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Daily Reported Cases</h4>
-                    <LineChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData3b}>
+                    <h4>Daily reported cases and predicted infections</h4>
+                    <LineChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData3b}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis tickFormatter={DataFormaterY} domain={[0, 'dataMax']}>
-                        <Label value="cases reported" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis tickFormatter={DataFormaterY} domain={[0, 750]}>
+                        <Label value="Reported cases and predicted infections" position="insideBottomLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
                         <Line dataKey="cases reported" stroke="#000000" dot={false}/>
-                        <Line dataKey="predicted cases" stroke="#aaacab" dot={false}/>
+                        <Line dataKey="predicted infections" stroke="#aaacab" dot={false}/>
                     </LineChart>
                 </div>}
                 {(checked && (showChart === 3)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
@@ -894,29 +904,29 @@ const Wastewatertracker = () => {
                     </LineChart>
                 </div>}
                 {(checked && (showChart === 3)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Daily Reported Cases</h4>
-                    <BarChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData4b}>
+                    <h4>Daily reported cases and predicted infections</h4>
+                    <BarChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData4b}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis  domain={[0, 'dataMax']} tickFormatter={DataFormaterY}>
-                        <Label value="cases reported" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis  domain={[0, 750]} tickFormatter={DataFormaterY}>
+                        <Label value="Reported cases and predicted infections" position="insideBottomLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
                         <Bar dataKey="cases reported" fill="#000000"/>
-                        <Bar dataKey="predicted cases" fill="#aaacab"/>
+                        <Bar dataKey="predicted infections" fill="#aaacab"/>
                     </BarChart>
                 </div>}
                 {(!checked && (showChart === 3)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Daily Reported Cases</h4>
-                    <LineChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData4b}>
+                    <h4>Daily reported cases and predicted infections</h4>
+                    <LineChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData4b}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis tickFormatter={DataFormaterY} domain={[0, 'dataMax']}>
-                        <Label value="cases reported" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis tickFormatter={DataFormaterY} domain={[0, 750]}>
+                        <Label value="Reported cases and predicted infections" position="insideBottomLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
                         <Line dataKey="cases reported" stroke="#000000" dot={false}/>
-                        <Line dataKey="predicted cases" stroke="#aaacab" dot={false}/>
+                        <Line dataKey="predicted infections" stroke="#aaacab" dot={false}/>
                     </LineChart>
                 </div>}
                 </div>}
@@ -924,7 +934,8 @@ const Wastewatertracker = () => {
 
                 <div>
                 <RiInformationLine size={30} style={{color: "grey"}}/>
-                <p>The Daily Reported Cases data on this site is automated and provided by the <a href="https://www.vdh.virginia.gov/" target = "_blank">Virginia Department of Health</a></p>
+                <p>The cases reported data on this site is automated and provided by the <a href="https://www.vdh.virginia.gov/" target = "_blank">Virginia Department of Health.</a></p>
+                <p>The predicted infections data is provided through simulation.</p>
                 </div>
 
             </div>

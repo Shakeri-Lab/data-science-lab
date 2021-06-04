@@ -9,7 +9,7 @@ import {
 
 const Personnel = () => {
     return(
-        <div className="App">
+        <div className="App" style={{marginTop: 80}}>
             {!isMobile && <BrowserView>
             <div style={{display: "flex", flexDirection: "row", margin: 20}}>
                 <div style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", borderRadius: 10, margin: 20, width: 250, cursor: "pointer"}}
