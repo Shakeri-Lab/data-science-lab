@@ -24,6 +24,9 @@ import MaterialA from "./Components/Teaching/MaterialA"
 
 //personnel
 import HemanShakeri from "./Components/Personnel/HemanShakeri"; 
+import NoahBeamon from "./Components/Personnel/NoahBeamon"; 
+import MehrdadFazli from "./Components/Personnel/MehrdadFazli"; 
+import ColinCrowe from "./Components/Personnel/ColinCrowe"; 
 
 import {
   BrowserRouter as Router,
@@ -59,19 +62,29 @@ function App() {
             <MaterialA />
           </Route>
           {/*Personnel*/}
+          <Route path="/MehrdadFazli" component={MehrdadFazli}>
+            <MehrdadFazli />
+          </Route>
+          <Route path="/ColinCrowe" component={ColinCrowe}>
+            <ColinCrowe />
+          </Route>
+          <Route path="/NoahBeamon" component={NoahBeamon}>
+            <NoahBeamon />
+          </Route>
           <Route path="/HemanShakeri" component={HemanShakeri}>
             <HemanShakeri />
           </Route>
+          
           {/*Tabs*/}
           <Route path="/Contact" component={Contact}>
             <Contact />
           </Route>
-          <Route path="/Blog" component={Blog}>
+          {/* <Route path="/Blog" component={Blog}>
             <Blog />
-          </Route>
-          <Route path="/Teachingandlectures" component={Teachingandlectures}>
+          </Route> */}
+          {/* <Route path="/Teachingandlectures" component={Teachingandlectures}>
             <Teachingandlectures />
-          </Route>
+          </Route> */}
           <Route path="/Publications" component={Publications}>
             <Publications />
           </Route>

@@ -8,10 +8,12 @@
 } */
 
 .main-footer{
-    color: #fff;
-    background-color: #333333; 
+    color: grey;
+    background-color: white; 
+    /* background-color: #333333;  */
     padding-top: 3em;
     position: relative;
     bottom: 0;
     width: 100%;
+    border-top: 1px solid #e2e6e4
 }

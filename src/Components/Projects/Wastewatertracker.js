@@ -21,7 +21,7 @@ import NewportNewsLimits from './NewportNews.json';
 // import Data2 from './Data2.json';
 import './Wastewatertracker.css';
 import { BarChart, LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Bar, Line, Label } from "recharts"; 
-import { chartData1a, chartData2a, chartData3a, chartData4a, simInfectedFromFile } from "./ChartData.js"; 
+import { simInfectedFromFile } from "./ChartData.js"; //chartData2a, chartData3a, chartData4a, 
 import Switch from "react-switch";
 
 var dateFormat = require("dateformat");
@@ -93,7 +93,8 @@ const Wastewatertracker = () => {
           x = "negative cases reported on this date"
       }
       var y = simInfected[j-1].Infected
-      chartData1b.push({"date": dateFormat(object[j].report_date, "mmm dd, yyyy"), "cases reported": x, "predicted infections": y})
+      var z = simInfected[j-1].V
+      chartData1b.push({"date": dateFormat(object[j].report_date, "mmm dd, yyyy"), "cases reported": x, "predicted infections": y, "viral load": z})
     }
 
     var k;
@@ -127,6 +128,12 @@ const Wastewatertracker = () => {
       var y = simInfected[n-1].Infected
       chartData4b.push({"date": dateFormat(object4b[n].report_date, "mmm dd, yyyy"), "cases reported": x, "predicted infections": y})
     }
+
+    //for rna primary sludge
+    var chartData1a = chartData1b
+    var chartData2a = chartData1b
+    var chartData3a = chartData1b
+    var chartData4a = chartData1b
 
     window.onresize = function() {    
         // var widthWin = window.document.body.clientWidth;
@@ -263,10 +270,14 @@ const Wastewatertracker = () => {
         <div className="App" style={{marginTop: 80}}>
             <div style={{margin: 20}}>
                 <h2><strong>Virginia Wastewater Reports</strong></h2>
-                <GiWaterRecycling style={{color: 'rgba(52, 220, 235, 1)'}} size={35}/>
+            </div>
+
+            <div style={{width: '90vw', margin: 'auto', textAlign: 'left'}}>
+                {/* <RiInformationLine size={30} style={{color: "grey"}}/> */}
+                <p>This data visualization project depicts the prevelance of COVID-19 in the Charlottesville and Hampton Roads areas. We first implement software to simulate the daily metrics of viral load in the population. We then simulate the number of total infections (reported and unreported). We postulate that the metrics attained through these simulations allow us to idenitfy trends based on events that occur in the community throughout the year. The simulation results are compared directly to the daily reported cases provided by the <a href="https://www.vdh.virginia.gov/" target = "_blank">Virginia Department of Health.</a></p>
             </div>
             
-            <strong style ={{color: "grey"}}>Click a location on the map to view its wastewater report and predicted infections.</strong>
+            <strong style ={{color: "grey"}}>Use the tab bar, search bar, and map markers to toggle between locations.</strong>
             <div style={{display: "flex", flexDirection: "column", justifyContent: "center", margin: 20}}>
                 <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
                 <div style={{ width: "50vw", borderBottom: tabBorderColor, cursor: "pointer", backgroundColor: "whitesmoke", borderTopLeftRadius: 10, borderBottomLeftRadius: 10}}
@@ -719,27 +730,27 @@ const Wastewatertracker = () => {
                 <strong style={{color: "grey"}}>XXXX Road, City, State, ZIP</strong>
                 </div>}
                 {(checked && (showChart === null || showChart === 0)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Primary Sludge</h4>
-                    <BarChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData1a}>
+                    <h4>Viral Load</h4>
+                    <BarChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData1b}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis tickFormatter={DataFormaterY}>
-                            <Label value="RNA (copies/mL)" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis domain={[0, 450000]} tickFormatter={DataFormaterY}>
+                            <Label value="viral load" position="insideLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
-                        <Bar dataKey="copies/mL" fill="#4B93E2" />
+                        <Bar dataKey="viral load" fill="#4B93E2" />
                     </BarChart>
                 </div>}
                 {(!checked && (showChart === null || showChart === 0)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Primary Sludge</h4>
-                    <LineChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData1a} style={{marginBottom: 20}}>
+                    <h4>Viral Load</h4>
+                    <LineChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData1a} style={{marginBottom: 20}}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis tickFormatter={DataFormaterY}>
-                            <Label value="RNA (copies/mL)" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis domain={[0, 450000]} tickFormatter={DataFormaterY}>
+                            <Label value="viral load" position="insideLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
-                        <Line dataKey="copies/mL" stroke="#4B93E2" dot={false}/>
+                        <Line dataKey="viral load" stroke="#4B93E2" dot={false}/>
                     </LineChart>
                 </div>}
                 {(checked && (showChart === null || showChart === 0)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
@@ -769,27 +780,27 @@ const Wastewatertracker = () => {
                     </LineChart>
                 </div>}
                 {(checked && (showChart === 1)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Primary Sludge</h4>
-                    <BarChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData2a}>
+                    <h4>Viral Load</h4>
+                    <BarChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData2a}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis tickFormatter={DataFormaterY}>
-                            <Label value="RNA (copies/mL)" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis domain={[0, 450000]} tickFormatter={DataFormaterY}>
+                            <Label value="viral load" position="insideLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
-                        <Bar dataKey="copies/mL" fill="#4B93E2" />
+                        <Bar dataKey="viral load" fill="#4B93E2" />
                     </BarChart>
                 </div>}
                 {(!checked && (showChart === 1)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Primary Sludge</h4>
-                    <LineChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData2a} style={{marginBottom: 20}}>
+                    <h4>Viral Load</h4>
+                    <LineChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData2a} style={{marginBottom: 20}}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis tickFormatter={DataFormaterY}>
-                            <Label value="RNA (copies/mL)" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis domain={[0, 450000]} tickFormatter={DataFormaterY}>
+                            <Label value="viral load" position="insideLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
-                        <Line dataKey="copies/mL" stroke="#4B93E2" dot={false}/>
+                        <Line dataKey="viral load" stroke="#4B93E2" dot={false}/>
                     </LineChart>
                 </div>}
                 {(checked && (showChart === 1)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
@@ -830,27 +841,27 @@ const Wastewatertracker = () => {
                 <strong style={{color: "grey"}}>XXXX Road, City, State, ZIP</strong>
                 </div>}
                 {(checked && (showChart === 2)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Primary Sludge</h4>
-                    <BarChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData3a}>
+                    <h4>Viral Load</h4>
+                    <BarChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData3a}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis tickFormatter={DataFormaterY}>
-                            <Label value="RNA (copies/mL)" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis domain={[0, 450000]} tickFormatter={DataFormaterY}>
+                            <Label value="viral load" position="insideLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
-                        <Bar dataKey="copies/mL" fill="#4B93E2" />
+                        <Bar dataKey="viral load" fill="#4B93E2" />
                     </BarChart>
                 </div>}
                 {(!checked && (showChart === 2)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Primary Sludge</h4>
-                    <LineChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData3a} style={{marginBottom: 20}}>
+                    <h4>Viral Load</h4>
+                    <LineChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData3a} style={{marginBottom: 20}}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis tickFormatter={DataFormaterY}>
-                            <Label value="RNA (copies/mL)" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis domain={[0, 450000]} tickFormatter={DataFormaterY}>
+                            <Label value="viral load" position="insideLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
-                        <Line dataKey="copies/mL" stroke="#4B93E2" dot={false}/>
+                        <Line dataKey="viral load" stroke="#4B93E2" dot={false}/>
                     </LineChart>
                 </div>}
                 {(checked && (showChart === 2)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
@@ -880,27 +891,27 @@ const Wastewatertracker = () => {
                     </LineChart>
                 </div>}
                 {(checked && (showChart === 3)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Primary Sludge</h4>
-                    <BarChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData4a}>
+                    <h4>Viral Load</h4>
+                    <BarChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData4a}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis tickFormatter={DataFormaterY}>
-                            <Label value="RNA (copies/mL)" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis domain={[0, 450000]} tickFormatter={DataFormaterY}>
+                            <Label value="viral load" position="insideLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
-                        <Bar dataKey="copies/mL" fill="#4B93E2" />
+                        <Bar dataKey="viral load" fill="#4B93E2" />
                     </BarChart>
                 </div>}
                 {(!checked && (showChart === 3)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
-                    <h4>Primary Sludge</h4>
-                    <LineChart width={window.innerWidth-150} height={window.innerHeight/4} data={chartData4a} style={{marginBottom: 20}}>
+                    <h4>Viral Load</h4>
+                    <LineChart width={window.innerWidth-150} height={window.innerHeight/1.5} data={chartData4a} style={{marginBottom: 20}}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="date" tickFormatter={DataFormaterX}/>
-                        <YAxis tickFormatter={DataFormaterY}>
-                            <Label value="RNA (copies/mL)" position="insideBottomLeft" offset={10} angle={-90}/>
+                        <YAxis domain={[0, 450000]} tickFormatter={DataFormaterY}>
+                            <Label value="viral load" position="insideLeft" offset={10} angle={-90}/>
                         </YAxis>
                         <Tooltip />
-                        <Line dataKey="copies/mL" stroke="#4B93E2" dot={false}/>
+                        <Line dataKey="viral load" stroke="#4B93E2" dot={false}/>
                     </LineChart>
                 </div>}
                 {(checked && (showChart === 3)) && <div className="chart-view-container" style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", margin: 20, padding: 20}}>
@@ -934,8 +945,8 @@ const Wastewatertracker = () => {
 
                 <div>
                 <RiInformationLine size={30} style={{color: "grey"}}/>
-                <p>The cases reported data on this site is automated and provided by the <a href="https://www.vdh.virginia.gov/" target = "_blank">Virginia Department of Health.</a></p>
-                <p>The predicted infections data is provided through simulation.</p>
+                <p>The cases reported data on this site is automated in real time and provided by the <a href="https://www.vdh.virginia.gov/" target = "_blank">Virginia Department of Health.</a></p>
+                <p>The viral load and predicted infections data is provided through simulation.</p>
                 </div>
 
             </div>

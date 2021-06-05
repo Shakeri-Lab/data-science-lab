@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./Footer.css"; 
 import { MdEmail } from "react-icons/md";
 import { AiFillTwitterSquare, AiFillLinkedin, AiFillGithub, AiFillPhone } from "react-icons/ai";
-import dataScienceLogo from "./images/dataScienceLogo.jpg"; 
+import dataScienceLogo from "./images/dataScienceLogo.png"; 
 
 const Footer = () => {
     const[logoHeight, setLogoHeight] = useState(window.innerHeight/14)
@@ -22,20 +22,20 @@ const Footer = () => {
                             <li>Questions? Contact Heman Shakeri, Assistant Professor, School of Data Science | University of Virginia</li>
                             <li>
                                 <MdEmail size={20}/>
-                                <a style={{margin: 10, color: '#fff'}} href={"mailto:" + "hs9hd@virginia.edu"}>Email</a>
+                                <a style={{margin: 10, color: 'grey'}} href={"mailto:" + "hs9hd@virginia.edu"}>Email</a>
                             </li>
                             <li>
                                 <AiFillTwitterSquare size={20}/>
-                                <a target="_blank" style={{margin: 10, color: '#fff'}} href={"https://twitter.com/HemanShakeri"}>Twitter</a>
+                                <a target="_blank" style={{margin: 10, color: 'grey'}} href={"https://twitter.com/HemanShakeri"}>Twitter</a>
                             </li>
                             <li>
                                 <AiFillLinkedin size={20}/>
-                                <a target="_blank" style={{margin: 10, color: '#fff'}} href={"https://www.linkedin.com/in/heman-shakeri-61ba603a/"}>LinkedIn</a>
+                                <a target="_blank" style={{margin: 10, color: 'grey'}} href={"https://www.linkedin.com/in/heman-shakeri-61ba603a/"}>LinkedIn</a>
                             </li>
                             <li style={{marginTop: 30}}>Site built by Noah Beamon</li>
                             <li>
                                 <AiFillLinkedin size={20}/>
-                                <a target="_blank" style={{margin: 10, color: '#fff'}} href={"https://www.linkedin.com/in/noah-b-8a45711b5/"}>LinkedIn</a>
+                                <a target="_blank" style={{margin: 10, color: 'grey'}} href={"https://www.linkedin.com/in/noah-b-8a45711b5/"}>LinkedIn</a>
                             </li>
                         </ul>
                     </div>
@@ -45,11 +45,11 @@ const Footer = () => {
                            <li>P.O. Box 400249</li>
                            <li>Charlottesville, VA 22904 USA</li>
                            <li>
-                                <a target="_blank" style={{color: '#fff'}} href={"https://www.google.com/maps/place/Dell+1,+Charlottesville,+VA+22903/@38.0344626,-78.5108793,17z"}>View on Map</a>
+                                <a target="_blank" style={{color: 'grey'}} href={"https://www.google.com/maps/place/Dell+1,+Charlottesville,+VA+22903/@38.0344626,-78.5108793,17z"}>View on Map</a>
                             </li>
                             <li>
                                 <MdEmail size={20}/>
-                                <a style={{margin: 10, color: '#fff'}} href={"mailto:" + "datascience@virginia.edu"}>Email</a>
+                                <a style={{margin: 10, color: 'grey'}} href={"mailto:" + "datascience@virginia.edu"}>Email</a>
                             </li>
                             <li>
                                 <AiFillPhone size={20} style={{marginRight: 10}}/>
@@ -65,7 +65,7 @@ const Footer = () => {
                 </div>
                 <hr style={{backgroundColor: "white"}} />
                 <div className="row">
-                    <p style={{color: "fff"}} className="col-sm">
+                    <p style={{color: "grey"}} className="col-sm">
                         &copy; {new Date().getFullYear()} Shakeri Research Group
                     </p>
                 </div>

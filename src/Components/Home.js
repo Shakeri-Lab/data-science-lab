@@ -80,20 +80,20 @@ const Home = () => {
                         setAlertVisible(false); 
                     }}><strong>X Close</strong></p>
                 </div>}
-                <div style={{display: "flex", flexDirection: "row", margin: 20}}>
-                    <div style={{margin: 10, width: "50vw", height: window.innerHeight/1.5, overflow: "auto"}}>
+                <div style={{display: "flex", flexDirection: "column", margin: 20}}>
+                    <div style={{margin: 10, height: window.innerHeight/1.5, overflow: "auto"}}>
                         <div style={{textAlign: "left"}}>
                             <ReactMarkdown source={text3} />
                         </div>
                     </div>
-                    <div style={{margin: 10, width: "50vw"}}>
+                    {/* <div style={{margin: 'auto', width: "50vw"}}>
                     <TwitterTimelineEmbed
                         sourceType="profile"
                         screenName="HemanShakeri"
                         // options={{height: 500, width: 500}}
                         options={{height: 350}}
                     />
-                    </div>
+                    </div> */}
                 </div>
             </BrowserView>}
             {isMobile && <MobileView style={{margin: 10}}>
@@ -109,7 +109,7 @@ const Home = () => {
                         setAlertVisible(false); 
                     }}><strong>X Close</strong></p>
                 </div>}
-                <div style={{margin: 10}}>
+                {/* <div style={{margin: 10}}>
                     <FaTwitter style={{color: "#1197E8"}} size={30}
                      onClick={() => {
                         setTwitterVisible(!twitterVisible)
@@ -123,7 +123,7 @@ const Home = () => {
                     />
                     </div>}
                    
-                </div>
+                </div> */}
                 <div style={{margin: 10}}>
                     <div style={{textAlign: "left"}}>
                         <ReactMarkdown source={text3} />

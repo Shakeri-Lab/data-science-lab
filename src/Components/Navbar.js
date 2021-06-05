@@ -32,12 +32,12 @@ function Navbar() {
             <Link to="/Publications" style={{textDecoration: "none"}}>
             <ReactBootstrap.Nav.Link eventKey={4} href="#publications">Publications</ReactBootstrap.Nav.Link>
             </Link>
-            <Link to="/Teachingandlectures" style={{textDecoration: "none"}}>
+            {/* <Link to="/Teachingandlectures" style={{textDecoration: "none"}}>
             <ReactBootstrap.Nav.Link eventKey={5} href="#publications">Teaching/Lectures</ReactBootstrap.Nav.Link>
-            </Link>
-            <Link to="/Blog" style={{textDecoration: "none"}}>
+            </Link> */}
+            {/* <Link to="/Blog" style={{textDecoration: "none"}}>
             <ReactBootstrap.Nav.Link eventKey={6} href="#blog">Blog</ReactBootstrap.Nav.Link>
-            </Link>
+            </Link> */}
             <Link to="/Contact" style={{textDecoration: "none"}}>
             <ReactBootstrap.Nav.Link eventKey={7} href="#contact">Contact</ReactBootstrap.Nav.Link>
             </Link>
