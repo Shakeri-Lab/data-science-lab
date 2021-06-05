@@ -79,7 +79,7 @@ const Personnel = () => {
                     window.location.href = "MehrdadFazli"
                 }}
                 >
-                    <img style={{borderRadius: 10, height: 250}} src="https://api.dsi.virginia.edu/sites/default/files/styles/square_sm/public/headshots/people/2020-01/Heman_001.png?w=1500"/>
+                    <img style={{borderRadius: 10, height: 250}} src={MehrdadFazli}/>
                     <div style={{padding: 5}}>
                         <strong>Mehrdad Fazli</strong>
                         <p>Ph.D. student at Engineering Systems and Environment | University of Virginia</p>
@@ -101,7 +101,7 @@ const Personnel = () => {
                     window.location.href = "ColinCrowe"
                 }}
                 >
-                    <img style={{borderRadius: 10, height: 250}} src="https://api.dsi.virginia.edu/sites/default/files/styles/square_sm/public/headshots/people/2020-01/Heman_001.png?w=1500"/>
+                    <img style={{borderRadius: 10, height: 250}} src={ColinCrowe}/>
                     <div style={{padding: 5}}>
                         <strong>Colin Crowe (he/him)</strong>
                         <p>Undergraduate Research Assistant | University of Virginia</p>
