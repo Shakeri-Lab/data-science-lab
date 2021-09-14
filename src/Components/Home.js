@@ -1,115 +1,180 @@
-import React, { useState, useEffect, useRef } from 'react';
-import ReactMarkdown from 'react-markdown'
-import MarkdownPath1 from "./Home.md"
-import MarkdownPath2 from "./Alert.md"
-import MarkdownPath3 from "./News.md"
-import "./Home.css"; 
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
-import emailjs from 'emailjs-com';
+import React, { useState, useEffect, useRef } from "react";
+import ReactMarkdown from "react-markdown";
+//Home
+//Projects
+//Publications
+//Contact
+import MarkdownPath1 from "./Home.md";
+import MarkdownPath4 from "./Contact.md";
+import MarkdownPath2 from "./Alert.md";
+import MarkdownPath3 from "./News.md";
+import "./Home.css";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import { TwitterTimelineEmbed } from "react-twitter-embed";
+import emailjs from "emailjs-com";
 import { AiFillGithub } from "react-icons/ai";
-import { SiGooglescholar, SiOrcid} from "react-icons/si";
+import { SiGooglescholar, SiOrcid } from "react-icons/si";
 import RecentsJSON from "./Recents.json";
 import { MdSubtitles } from "react-icons/md";
 import { IoIosCalendar, IoMdSearch } from "react-icons/io";
-import { BiHash } from "react-icons/bi"; 
+import { BiHash } from "react-icons/bi";
 import { FaTwitter } from "react-icons/fa";
-import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import {
+  Form,
+  Button,
+  FormGroup,
+  FormControl,
+  ControlLabel,
+} from "react-bootstrap";
 
 import {
-    BrowserView,
-    MobileView,
-    isBrowser,
-    isMobile
-  } from "react-device-detect";
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from "react-device-detect";
 
 const Home = () => {
-    // const[name, setName] = useState("");
-    // const[email, setEmail] = useState("");
-    // const[message, setMessage] = useState(""); 
+  // const[name, setName] = useState("");
+  // const[email, setEmail] = useState("");
+  // const[message, setMessage] = useState("");
 
-    // const[button1, setButton1] = useState('2px solid rgb(0, 0, 0, 1)');
-    // const[button2, setButton2] = useState('2px solid rgb(0, 0, 0, 1)');
-    // const[button3, setButton3] = useState('2px solid rgb(0, 0, 0, 1)');
+  // const[button1, setButton1] = useState('2px solid rgb(0, 0, 0, 1)');
+  // const[button2, setButton2] = useState('2px solid rgb(0, 0, 0, 1)');
+  // const[button3, setButton3] = useState('2px solid rgb(0, 0, 0, 1)');
 
-    // const[inputTitle, setInputTitle] = useState("");
-    // const[inputDescription, setInputDescription] = useState("");
-    // const[inputTags, setInputTags] = useState("");
-    // const[inputTime, setInputTime] = useState("");
+  // const[inputTitle, setInputTitle] = useState("");
+  // const[inputDescription, setInputDescription] = useState("");
+  // const[inputTags, setInputTags] = useState("");
+  // const[inputTime, setInputTime] = useState("");
 
-    // const[buttonColor, setButtonColor] = useState("rgba(46, 61, 130, 1)");
+  // const[buttonColor, setButtonColor] = useState("rgba(46, 61, 130, 1)");
 
-    var[text1, setText1] = useState(null)
-    var[text2, setText2] = useState(null)
-    var[text3, setText3] = useState(null)
+  var [text1, setText1] = useState(null);
+  var [text2, setText2] = useState(null);
+  var [text3, setText3] = useState(null);
+  var [text4, setText4] = useState(null);
 
-    useEffect(() => {
-        fetch(MarkdownPath1).then((response) => response.text()).then((text) => {
-            setText1(text); 
-        })
-    }, []);
+  useEffect(() => {
+    fetch(MarkdownPath1)
+      .then((response) => response.text())
+      .then((text) => {
+        setText1(text);
+      });
+  }, []);
 
-    useEffect(() => {
-        fetch(MarkdownPath2).then((response) => response.text()).then((text) => {
-            setText2(text); 
-        })
-    }, []);
+  useEffect(() => {
+    fetch(MarkdownPath2)
+      .then((response) => response.text())
+      .then((text) => {
+        setText2(text);
+      });
+  }, []);
 
-    useEffect(() => {
-        fetch(MarkdownPath3).then((response) => response.text()).then((text) => {
-            setText3(text); 
-        })
-    }, []);
+  useEffect(() => {
+    fetch(MarkdownPath3)
+      .then((response) => response.text())
+      .then((text) => {
+        setText3(text);
+      });
+  }, []);
 
+  useEffect(() => {
+    fetch(MarkdownPath4)
+      .then((response) => response.text())
+      .then((text) => {
+        setText4(text);
+      });
+  }, []);
 
+  const [twitterVisible, setTwitterVisible] = useState(false);
+  const [alertVisible, setAlertVisible] = useState(true);
 
-    const[twitterVisible, setTwitterVisible] = useState(false);
-    const[alertVisible, setAlertVisible] = useState(true);
-
-    return(
-        <div className="App" style={{marginTop: 80}}>
-            {!isMobile && <BrowserView>
-                <div style={{margin: 20, textAlign: "left"}}>
-                    <ReactMarkdown source={text1} />
-                </div>
-                {alertVisible && <div style={{backgroundColor: "whitesmoke ", borderRadius: 10, margin: 20}}>
-                    <ReactMarkdown source={text2} />
-                    <p style={{color: "gray", cursor: "pointer"}}
-                    onClick = {() =>{
-                        setAlertVisible(false); 
-                    }}><strong>X Close</strong></p>
-                </div>}
-                <div style={{display: "flex", flexDirection: "column", margin: 20}}>
-                    <div style={{margin: 10, height: window.innerHeight/1.5, overflow: "auto"}}>
-                        <div style={{textAlign: "left"}}>
-                            <ReactMarkdown source={text3} />
-                        </div>
-                    </div>
-                    {/* <div style={{margin: 'auto', width: "50vw"}}>
-                    <TwitterTimelineEmbed
-                        sourceType="profile"
-                        screenName="HemanShakeri"
-                        // options={{height: 500, width: 500}}
-                        options={{height: 350}}
-                    />
-                    </div> */}
-                </div>
-            </BrowserView>}
-            {isMobile && <MobileView style={{margin: 10}}>
-                <div className="content-container">
-                    <div style={{margin: 20, textAlign: "left" }}>
-                        <ReactMarkdown source={text1} /> 
-                    </div>
-                </div>
-                {alertVisible && <div style={{backgroundColor: "whitesmoke ", borderRadius: 10, margin: 20}}>
-                <ReactMarkdown source={text2} />
-                    <p style={{color: "gray", cursor: "pointer"}}
-                    onClick = {() =>{
-                        setAlertVisible(false); 
-                    }}><strong>X Close</strong></p>
-                </div>}
-                {/* <div style={{margin: 10}}>
+  return (
+    <div className="App" style={{ marginTop: 80 }}>
+      {!isMobile && (
+        <BrowserView>
+          <div style={{ margin: 20 }}>
+            <div style={{ flexDirection: "column", textAlign: "left" }}>
+              <ReactMarkdown source={text1} />
+            </div>
+            <div class="content-search-container">
+              <div style={{ flexDirection: "column", margin: 10 }}>
+                <ReactMarkdown source={text1} />
+              </div>
+              <div style={{ flexDirection: "column", margin: 10 }}>
+                <ReactMarkdown source={text1} />
+              </div>
+              <div style={{ flexDirection: "column", margin: 10 }}>
+                <ReactMarkdown source={text4} />
+              </div>
+            </div>
+          </div>
+          {/* <div style={{ margin: 20, textAlign: "left" }}>
+            <ReactMarkdown source={text1} />
+          </div>
+          {alertVisible && (
+            <div
+              style={{
+                backgroundColor: "whitesmoke ",
+                borderRadius: 10,
+                margin: 20,
+              }}
+            >
+              <ReactMarkdown source={text2} />
+              <p
+                style={{ color: "gray", cursor: "pointer" }}
+                onClick={() => {
+                  setAlertVisible(false);
+                }}
+              >
+                <strong>X Close</strong>
+              </p>
+            </div>
+          )}
+          <div style={{ display: "flex", flexDirection: "column", margin: 20 }}>
+            <div
+              style={{
+                margin: 10,
+                height: window.innerHeight / 1.5,
+                overflow: "auto",
+              }}
+            >
+              <div style={{ textAlign: "left" }}>
+                <ReactMarkdown source={text3} />
+              </div>
+            </div>
+          </div> */}
+        </BrowserView>
+      )}
+      {isMobile && (
+        <MobileView style={{ margin: 10 }}>
+          <div className="content-container">
+            <div style={{ margin: 20, textAlign: "left" }}>
+              <ReactMarkdown source={text1} />
+            </div>
+          </div>
+          {alertVisible && (
+            <div
+              style={{
+                backgroundColor: "whitesmoke ",
+                borderRadius: 10,
+                margin: 20,
+              }}
+            >
+              <ReactMarkdown source={text2} />
+              <p
+                style={{ color: "gray", cursor: "pointer" }}
+                onClick={() => {
+                  setAlertVisible(false);
+                }}
+              >
+                <strong>X Close</strong>
+              </p>
+            </div>
+          )}
+          {/* <div style={{margin: 10}}>
                     <FaTwitter style={{color: "#1197E8"}} size={30}
                      onClick={() => {
                         setTwitterVisible(!twitterVisible)
@@ -124,14 +189,15 @@ const Home = () => {
                     </div>}
                    
                 </div> */}
-                <div style={{margin: 10}}>
-                    <div style={{textAlign: "left"}}>
-                        <ReactMarkdown source={text3} />
-                    </div>
-                </div>
-            </MobileView>}
+          <div style={{ margin: 10 }}>
+            <div style={{ textAlign: "left" }}>
+              <ReactMarkdown source={text3} />
+            </div>
+          </div>
+        </MobileView>
+      )}
 
-            {/* <Tabs style={{marginTop: 10}}>
+      {/* <Tabs style={{marginTop: 10}}>
                 <TabList style={{display: "flex", alignItems: "left"}}>
                 <Tab>General Info</Tab>
                 <Tab>Activiy</Tab>
@@ -355,8 +421,8 @@ const Home = () => {
                     </div>
                 </TabPanel>
             </Tabs> */}
-        </div>
-    )
-}
+    </div>
+  );
+};
 
-export default Home; 
+export default Home;
