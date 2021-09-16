@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
-//Home
-//Projects
-//Publications
-//Contact
-import MarkdownPath1 from "./Home.md";
-import MarkdownPath4 from "./Contact.md";
-import MarkdownPath2 from "./Alert.md";
-import MarkdownPath3 from "./News.md";
+
+import MarkdownPathIntro from "./Home.md";
+import MarkdownPathPI from "./PI.md";
+import MarkdownPathPeople from "./People.md";
+import MarkdownPathNews from "./News.md";
+import MarkdownPathProjects from "./Projects.md";
+import MarkdownPathPublications from "./Publications.md";
+
 import "./Home.css";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
@@ -51,40 +51,58 @@ const Home = () => {
 
   // const[buttonColor, setButtonColor] = useState("rgba(46, 61, 130, 1)");
 
-  var [text1, setText1] = useState(null);
-  var [text2, setText2] = useState(null);
-  var [text3, setText3] = useState(null);
-  var [text4, setText4] = useState(null);
+  var [textIntro, setTextIntro] = useState(null);
+  var [textPI, setTextPI] = useState(null);
+  var [textPeople, setTextPeople] = useState(null);
+  var [textNews, setTextNews] = useState(null);
+  var [textProjects, setTextProjects] = useState(null);
+  var [textPublications, setTextPublications] = useState(null);
 
   useEffect(() => {
-    fetch(MarkdownPath1)
+    fetch(MarkdownPathIntro)
       .then((response) => response.text())
       .then((text) => {
-        setText1(text);
+        setTextIntro(text);
       });
   }, []);
 
   useEffect(() => {
-    fetch(MarkdownPath2)
+    fetch(MarkdownPathPI)
       .then((response) => response.text())
       .then((text) => {
-        setText2(text);
+        setTextPI(text);
       });
   }, []);
 
   useEffect(() => {
-    fetch(MarkdownPath3)
+    fetch(MarkdownPathPeople)
       .then((response) => response.text())
       .then((text) => {
-        setText3(text);
+        setTextPeople(text);
       });
   }, []);
 
   useEffect(() => {
-    fetch(MarkdownPath4)
+    fetch(MarkdownPathNews)
       .then((response) => response.text())
       .then((text) => {
-        setText4(text);
+        setTextNews(text);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(MarkdownPathProjects)
+      .then((response) => response.text())
+      .then((text) => {
+        setTextProjects(text);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(MarkdownPathPublications)
+      .then((response) => response.text())
+      .then((text) => {
+        setTextPublications(text);
       });
   }, []);
 
@@ -97,9 +115,30 @@ const Home = () => {
         <BrowserView>
           <div style={{ margin: 20 }}>
             <div style={{ flexDirection: "column", textAlign: "left" }}>
-              <ReactMarkdown source={text1} />
+              <ReactMarkdown source={textIntro} />
             </div>
             <div class="content-search-container">
+              <div style={{ flexDirection: "column" }}>
+                <div>
+                  <ReactMarkdown source={textPI} />
+                </div>
+                <div>
+                  <ReactMarkdown source={textPeople} />
+                </div>
+                <div>
+                  <ReactMarkdown source={textNews} />
+                </div>
+              </div>
+              <div style={{ flexDirection: "column" }}>
+                <div>
+                  <ReactMarkdown source={textProjects} />
+                </div>
+                <div>
+                  <ReactMarkdown source={textPublications} />
+                </div>
+              </div>
+            </div>
+            {/* <div class="content-search-container">
               <div style={{ flexDirection: "column", margin: 10 }}>
                 <ReactMarkdown source={text1} />
               </div>
@@ -109,7 +148,7 @@ const Home = () => {
               <div style={{ flexDirection: "column", margin: 10 }}>
                 <ReactMarkdown source={text4} />
               </div>
-            </div>
+            </div> */}
           </div>
           {/* <div style={{ margin: 20, textAlign: "left" }}>
             <ReactMarkdown source={text1} />
@@ -152,7 +191,7 @@ const Home = () => {
         <MobileView style={{ margin: 10 }}>
           <div className="content-container">
             <div style={{ margin: 20, textAlign: "left" }}>
-              <ReactMarkdown source={text1} />
+              <ReactMarkdown source={textIntro} />
             </div>
           </div>
           {alertVisible && (
@@ -163,7 +202,7 @@ const Home = () => {
                 margin: 20,
               }}
             >
-              <ReactMarkdown source={text2} />
+              <ReactMarkdown source={textNews} />
               <p
                 style={{ color: "gray", cursor: "pointer" }}
                 onClick={() => {
@@ -191,7 +230,7 @@ const Home = () => {
                 </div> */}
           <div style={{ margin: 10 }}>
             <div style={{ textAlign: "left" }}>
-              <ReactMarkdown source={text3} />
+              <ReactMarkdown source={textProjects} />
             </div>
           </div>
         </MobileView>
