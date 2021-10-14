@@ -1,0 +1,3 @@
+# Mehrdad Fazli
+
+I am a second-year Ph.D. student in Engineering Systems and Environment (ESE) at the University of Virginia. I hold an M.Sc. in Mechanical Engineering from the University of Virginia. Also, I obtained my B.Sc. from Sharif University of Technology (SUT) in mechanical Engineering. I work with data and my research focus is on applying data mining and machine learning algorithms to real-world problems, ranging from smart environments and human-computer interaction (HCI) to networks.
